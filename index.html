@@ -9,15 +9,17 @@
 <body>
 
 
- <!-- Disclaimer Section -->
+    <!-- Disclaimer Section -->
     <section id="disclaimer-section">
-       <h2>Disclaimer</h2>
+        <h2>Disclaimer</h2>
         <p id="disclaimer-text">Please note that the following information is intended for informational purposes only. The suggested alternative devices have been selected based on their best match to the End of Life (EoL) device and, in some cases, for being the best device where all metrics are equal to or improved over the EoL device. It's important to consider that customer requirements may dictate that the recommended alternative device is not suitable. Always consult with your Cisco representative if specific requirements need to be met.</p>
-        <p>www.networkwizkid.com</p>
+        <p><a href="https://www.networkwizkid.com" target="_blank">www.networkwizkid.com</a></p>
     </section>
 
+    <img src="https://networkwizkid.com/wp-content/uploads/2022/10/cropped-new-logo-final-v3.jpg" width="200" height="100" alt="Network Wizkid logo" />
+
     <h1>Cisco End of Life (EoL) Device Migration Options</h1>
-    
+
     <form id="deviceForm">
         <label for="deviceSelect">Select an EoL Device:</label>
         <select id="deviceSelect">
@@ -28,6 +30,10 @@
 
     <div id="comparisonResults">
         <!-- Comparison results will be displayed here dynamically -->
+    </div>
+
+    <div id="noResultsMessage" style="display: none; background-color: yellow; padding: 10px; border: 1px solid red;">
+        Based on your requirements, no comparable firewall devices exist.
     </div>
 
     <script src="script.js"></script>

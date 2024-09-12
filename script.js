@@ -66,6 +66,8 @@ const devices = {
         MaximumVPNPeers: '700',
         alternatives: ['Secure Firewall 1150', 'Secure Firewall 3110']
     },
+    // Not included the 4110 as 1YR licenses are still an option
+    /*
     'Firepower 4110': { 
         StatefulInspectionThroughput: '35 Gbps', 
         StatefulInspectionThroughputMultiprotocol: '15 Gbps',
@@ -77,6 +79,7 @@ const devices = {
         MaximumVPNPeers: '10,000',
         alternatives: ['Secure Firewall 3110', 'Secure Firewall 3140']
     },
+    */
     'Firepower 4120': { 
         StatefulInspectionThroughput: '60 Gbps', 
         StatefulInspectionThroughputMultiprotocol: '30 Gbps',
@@ -216,6 +219,8 @@ const newdevices = {
         IPSecVPNThroughput: '4 Gbps',
         MaximumVPNPeers: 'No Data Available'
     },
+     // Removed all 2100 series devices as EoL will be annouced soon
+     /*
     'Firepower 2110': { 
         StatefulInspectionThroughput: '3 Gbps',  
         StatefulInspectionThroughputMultiprotocol: '1.5 Gbps',
@@ -256,6 +261,7 @@ const newdevices = {
         IPSecVPNThroughput: '3.6 Gbps',
         MaximumVPNPeers: '10,000'
     },
+    */
     'Secure Firewall 3105': { 
         StatefulInspectionThroughput: '10 Gbps',  
         StatefulInspectionThroughputMultiprotocol: '9 Gbps',
@@ -435,15 +441,33 @@ function calculateDifference(eolValue, altValue) {
 // Add filter inputs for each metric
 const filterForm = document.createElement('form');
 filterForm.id = 'filterForm';
+
+// List of metric names where we want to add "Gbps"
+const metricsWithGbps = [
+    "ASA Stateful Inspection Firewall Throughput",
+    "ASA Stateful Inspection Multiprotocol Throughput",
+    "FTD Throughput with FW and AVC",
+    "FTD Throughput with FW, AVC and IPS",
+    "IPSec VPN Throughput"
+];
+
 metrics.forEach(metric => {
-  const filterLabel = document.createElement('label');
-  filterLabel.textContent = `${metric.name} (Min): `;
-  const filterInput = document.createElement('input');
-  filterInput.type = 'number';
-  filterInput.id = `filter_${metric.key}`; 
-  filterForm.appendChild(filterLabel);
-  filterForm.appendChild(filterInput);
-  filterForm.appendChild(document.createElement('br')); 
+    const filterLabel = document.createElement('label');
+
+    // Check if the current metric is in the list to add "Gbps"
+    if (metricsWithGbps.includes(metric.name)) {
+        filterLabel.textContent = `${metric.name} (Gbps) (Min): `;
+    } else {
+        // Keep the original "(Min)" label for other metrics
+        filterLabel.textContent = `${metric.name} (Min): `;
+    }
+
+    const filterInput = document.createElement('input');
+    filterInput.type = 'number';
+    filterInput.id = `filter_${metric.key}`;
+    filterForm.appendChild(filterLabel);
+    filterForm.appendChild(filterInput);
+    filterForm.appendChild(document.createElement('br'));
 });
 
 // Add a button to trigger filtering
@@ -469,95 +493,110 @@ comparisonResults.parentNode.insertBefore(filterForm, comparisonResults);
 
 // Function to apply filters
 function applyFilters() {
-  const selectedDevice = deviceSelect.value;
+    const selectedDevice = deviceSelect.value;
+    const noResultsMessage = document.getElementById('noResultsMessage');
 
-  // Get filter values
-  const filters = {};
-  metrics.forEach(metric => {
-    const filterValue = document.getElementById(`filter_${metric.key}`).value;
-    if (filterValue) {
-      filters[metric.key] = parseFloat(filterValue);
-    }
-  });
-
-  if (selectedDevice) {
-    const deviceData = devices[selectedDevice];
-    if (!deviceData) return;
-
-    const filteredAlternatives = deviceData.alternatives.filter(alternative => {
-      const altData = newdevices[alternative];
-      return Object.keys(filters).every(metricKey => {
-        const { number: eolNumber } = extractNumberAndUnit(deviceData[metricKey]);
-        const { number: altNumber } = extractNumberAndUnit(altData[metricKey]);
-        return altNumber !== null && altNumber >= filters[metricKey] && 
-               (eolNumber !== null ? altNumber >= eolNumber : true); 
-      });
-    });
-
-    // Generate the comparison table for the selected EoL device and its filtered alternatives
-    let resultsHtml = `<h2>Comparison for ${selectedDevice}</h2>`;
-    resultsHtml += `
-      <table class="comparison-table"> 
-        <tr>
-          <th>Metric</th>
-          <th>${selectedDevice} (EoL Device)</th>
-          ${filteredAlternatives.map(alt => `<th>${alt} (Alternative Device)</th><th>Difference</th>`).join('')}
-        </tr>`;
-
+    // Get filter values
+    const filters = {};
     metrics.forEach(metric => {
-      resultsHtml += `<tr> 
-        <td><b>${metric.name}:</b></td>
-        <td>${formatNumber(deviceData[metric.key]) || 'No Comparable Data Available'}</td>`;
-
-      filteredAlternatives.forEach(alternative => {
-        const altData = newdevices[alternative];
-        const eolValue = deviceData[metric.key];
-        const altValue = altData ? altData[metric.key] : null;
-
-        resultsHtml += `<td>${formatNumber(altValue) || 'No Comparable Data Available'}</td>`;
-        resultsHtml += `<td>${calculateDifference(eolValue, altValue)}</td>`;
-      });
-
-      resultsHtml += `</tr>`;
+        const filterValue = document.getElementById(`filter_${metric.key}`).value;
+        if (filterValue) {
+            filters[metric.key] = parseFloat(filterValue);
+        }
     });
 
-    resultsHtml += `</table>`;
+    if (selectedDevice) {
+        const deviceData = devices[selectedDevice];
+        if (!deviceData) return;
 
-    comparisonResults.innerHTML = resultsHtml;
-  } else { 
-    const filteredNewDevices = Object.keys(newdevices).filter(newDevice => {
-      const newDeviceData = newdevices[newDevice];
-      return Object.keys(filters).every(metricKey => {
-        const { number: newDeviceNumber } = extractNumberAndUnit(newDeviceData[metricKey]);
-        return newDeviceNumber !== null && newDeviceNumber >= filters[metricKey];
-      });
-    });
+        const filteredAlternatives = deviceData.alternatives.filter(alternative => {
+            const altData = newdevices[alternative];
+            return Object.keys(filters).every(metricKey => {
+                const { number: eolNumber } = extractNumberAndUnit(deviceData[metricKey]);
+                const { number: altNumber } = extractNumberAndUnit(altData[metricKey]);
+                return altNumber !== null && altNumber >= filters[metricKey] &&
+                    (eolNumber !== null ? altNumber >= eolNumber : true);
+            });
+        });
 
-    // Generate the comparison table showing only the filtered new devices
-    let resultsHtml = `<h2>Available Migration Options</h2>`;
-    resultsHtml += `
-      <table class="comparison-table"> 
-        <tr>
-          <th>New Device</th>
-          ${metrics.map(metric => `<th>${metric.name}</th>`).join('')}
-        </tr>`;
+        // Generate the comparison table or show "no results" message
+        if (filteredAlternatives.length === 0) {
+            noResultsMessage.style.display = 'block';
+            comparisonResults.innerHTML = ''; // Clear previous results
+        } else {
+            noResultsMessage.style.display = 'none';
 
-    filteredNewDevices.forEach(newDevice => {
-      const newDeviceData = newdevices[newDevice];
-      resultsHtml += `<tr>
-        <td><b>${newDevice}</b></td>`;
+            let resultsHtml = `<h2>Comparison for ${selectedDevice}</h2>`;
+            resultsHtml += `
+            <table class="comparison-table"> 
+                <tr>
+                <th>Metric</th>
+                <th>${selectedDevice} (EoL Device)</th>
+                ${filteredAlternatives.map(alt => `<th>${alt} (Alternative Device)</th><th>Difference</th>`).join('')}
+                </tr>`;
 
-      metrics.forEach(metric => {
-        resultsHtml += `<td>${formatNumber(newDeviceData[metric.key]) || 'No Comparable Data Available'}</td>`;
-      });
+            metrics.forEach(metric => {
+                resultsHtml += `<tr> 
+                <td><b>${metric.name}:</b></td>
+                <td>${formatNumber(deviceData[metric.key]) || 'No Comparable Data Available'}</td>`;
 
-      resultsHtml += `</tr>`;
-    });
+                filteredAlternatives.forEach(alternative => {
+                    const altData = newdevices[alternative];
+                    const eolValue = deviceData[metric.key];
+                    const altValue = altData ? altData[metric.key] : null;
 
-    resultsHtml += `</table>`;
+                    resultsHtml += `<td>${formatNumber(altValue) || 'No Comparable Data Available'}</td>`;
+                    resultsHtml += `<td>${calculateDifference(eolValue, altValue)}</td>`;
+                });
 
-    comparisonResults.innerHTML = resultsHtml;
-  }
+                resultsHtml += `</tr>`;
+            });
+
+            resultsHtml += `</table>`;
+
+            comparisonResults.innerHTML = resultsHtml;
+        }
+    } else {
+        const filteredNewDevices = Object.keys(newdevices).filter(newDevice => {
+            const newDeviceData = newdevices[newDevice];
+            return Object.keys(filters).every(metricKey => {
+                const { number: newDeviceNumber } = extractNumberAndUnit(newDeviceData[metricKey]);
+                return newDeviceNumber !== null && newDeviceNumber >= filters[metricKey];
+            });
+        });
+
+        // Generate the comparison table or show "no results" message
+        if (filteredNewDevices.length === 0) {
+            noResultsMessage.style.display = 'block';
+            comparisonResults.innerHTML = ''; // Clear previous results
+        } else {
+            noResultsMessage.style.display = 'none';
+
+            let resultsHtml = `<h2>Available Migration Options</h2>`;
+            resultsHtml += `
+            <table class="comparison-table"> 
+                <tr>
+                <th>New Device</th>
+                ${metrics.map(metric => `<th>${metric.name}</th>`).join('')}
+                </tr>`;
+
+            filteredNewDevices.forEach(newDevice => {
+                const newDeviceData = newdevices[newDevice];
+                resultsHtml += `<tr>
+                <td><b>${newDevice}</b></td>`;
+
+                metrics.forEach(metric => {
+                    resultsHtml += `<td>${formatNumber(newDeviceData[metric.key]) || 'No Comparable Data Available'}</td>`;
+                });
+
+                resultsHtml += `</tr>`;
+            });
+
+            resultsHtml += `</table>`;
+
+            comparisonResults.innerHTML = resultsHtml;
+        }
+    }
 }
 
 // Function to clear filters
