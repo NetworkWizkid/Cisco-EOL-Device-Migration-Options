@@ -534,7 +534,7 @@ function applyFilters() {
     });
 
     // Generate the comparison table showing only the filtered new devices
-    let resultsHtml = `<h2>Filtered New Devices</h2>`;
+    let resultsHtml = `<h2>Available Migration Options</h2>`;
     resultsHtml += `
       <table class="comparison-table"> 
         <tr>
