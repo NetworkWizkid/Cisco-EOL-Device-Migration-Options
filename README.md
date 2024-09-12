@@ -27,7 +27,7 @@ Changelog:
 
 v1.0 Initial Release
 
-v1.1 Added README, included "Gbps" units in filter text, removed 4110 from EoL list, excluded 2100 series devices from alternative options, added notification for no matches based on custom metrics, and provided links to relevant Cisco documentation.
+v1.1 Added README, included "Gbps" units in filter text, removed 4110 from EoL list, excluded 2100 series devices from alternative options, added notification for no matches based on custom metrics, and provided links to relevant Cisco documentation. Added Network Wizkid Logo.
 
 Additional Notes:
 The application will be maintained on a best-effort basis.
