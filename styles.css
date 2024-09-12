@@ -1,0 +1,113 @@
+/* General styling for the body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Style the header */
+h1 {
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Style the form and dropdown */
+form {
+    margin-bottom: 20px;
+}
+
+/* Disclaimer Section Styling */
+#disclaimer-section {
+  text-align: center; /* Center the text within the disclaimer section */
+  background-color: #ffeeba; /* Light yellow background for visibility */
+  padding: 20px; /* Add padding for spacing */
+  border: 1px solid #eed202; /* Subtle border for emphasis */
+  border-radius: 5px; /* Slightly rounded corners */
+  margin-bottom: 30px; /* Space between the disclaimer and the next element */
+  width: 80%; /* Adjust the width as needed */
+}
+
+#disclaimer-section h2 {
+  color: #856404; /* Darker text color for the heading */
+}
+
+#disclaimer-text {
+  font-size: 1.1rem; /* Slightly larger font size for readability */
+}
+
+label {
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
+select {
+    padding: 8px 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #333;
+}
+
+/* Style the comparison results */
+#comparisonResults {
+    width: 80%;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#comparisonResults h2 {
+    margin-top: 0;
+    color: #555;
+}
+
+/* General table styling */
+.comparison-table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 15px; /* Adjusted margin to match your existing table style */
+    font-family: Arial, sans-serif;
+}
+
+/* Table header and cell styling */
+.comparison-table th, .comparison-table td {
+    padding: 12px; /* Adjusted padding to match your existing table style */
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Table header styling */
+.comparison-table th {
+    background-color: #f8f8f8; /* Kept your original header background color */
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    #comparisonResults {
+        width: 100%;
+        padding: 10px;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+}
