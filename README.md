@@ -35,12 +35,21 @@ Additional Links:
 The following links are relevant to this project.
 
 Cisco Firewall Migration Suggestions: https://www.cisco.com/c/en/us/products/security/firewalls/firewall-migration.html
+
 Cisco Firewalls: https://www.cisco.com/site/us/en/products/security/firewalls/index.html
+
 Cisco 5500 Series Data Sheets: https://www.cisco.com/c/en/us/products/collateral/security/asa-firepower-services/datasheet-c78-742475.html
+
 Cisco 2100 Series Data Sheet: https://www.cisco.com/c/en/us/products/collateral/security/firepower-2100-series/datasheet-c78-742473.html
+
 Cisco ASA EoL Notices: https://www.cisco.com/c/en/us/products/collateral/security/asa-firepower-services/asa5525-5545-5555-1yr-series-subs-eol.html
+
 Cisco 7000 and 8000 Series EoL Notices: https://www.cisco.com/c/en/us/products/collateral/security/firepower-7000-series-appliances/eos-eol-notice-c51-741685.html
+
 Cisco ASA Notices: https://www.cisco.com/c/en/us/support/security/asa-5500-series-next-generation-firewalls/series.html#%7Etab-documents
+
 Cisco ASA 5500 Series EoL Notices: https://www.cisco.com/c/en/us/products/security/asa-5500-series-next-generation-firewalls/eos-eol-notice-listing.html
+
 Cisco Firepower EoL Notices: https://www.cisco.com/c/en/us/products/security/firepower-ngfw/eos-eol-notice-listing.html
+
 The Network Wizkid Website: https://www.networkwizkid.com
