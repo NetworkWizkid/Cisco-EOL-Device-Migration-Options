@@ -1,7 +1,9 @@
-Cisco EoL Device Migration Options - README
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Cisco EoL Device Migration Tool - README
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Project Description:
-
-This project helps network administrators identify suitable Cisco firewall migration options for End-of-Life (EoL) devices. It offers two methods to find alternative firewalls:
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+This project helps network security administrators, customers and internal employees aligned to security identify suitable Cisco firewall migration options for End-of-Life (EoL) devices. It offers two methods to find alternative firewalls:
 
 Method 1: Select EoL Model
 
@@ -10,29 +12,33 @@ The table will display one or two potential replacements that closely match or e
 
 Method 2: Enter Custom Metrics
 
-For more flexibility, enter desired values for key metrics (e.g., throughput, connections).
-The application will display suitable alternatives based on your entered values.
-Important Note: This application is intended for a general overview. For specific requirements or complex migrations, consider applying custom filters in option two or consulting with a Cisco representative.
-
+For more flexibility, enter desired values for key metrics (e.g., throughput, connections). The application will display suitable alternatives based on your entered values.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Using the Application:
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Access the tool at: https://networkwizkid.github.io/Cisco-EOL-Device-Migration-Options/
 
-Access the application at: https://networkwizkid.github.io/Cisco-EOL-Device-Migration-Options/
 For a visual guide, visit the Network Wizkid YouTube channel for a demonstration: https://www.youtube.com/@NetworkWizkid
 Feedback and Collaboration:
 
 Report any bugs or express interest in collaboration via email: networkwiizkiid@gmail.com
 License: MIT License
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Changelog:
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+See https://networkwizkid.com/cisco-eol-device-migration-tool/
 
-v1.0 Initial Release
-
-v1.1 Added README, included "Gbps" units in filter text, removed 4110 from EoL list, excluded 2100 series devices from alternative options, added notification for no matches based on custom metrics, and provided links to relevant Cisco documentation. Added Network Wizkid Logo.
-
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Additional Notes:
-The application will be maintained on a best-effort basis.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+This tool is intended for a general overview. For specific requirements or complex migrations, consider applying custom filters in option two or consulting with a Cisco representative.
 
+The tool will be maintained on a best-effort basis.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Additional Links:
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 The following links are relevant to this project.
 
 Cisco Firewall Migration Suggestions: https://www.cisco.com/c/en/us/products/security/firewalls/firewall-migration.html
