@@ -13,6 +13,7 @@ The table will display one or two potential replacements that closely match or e
 Method 2: Enter Custom Metrics
 
 For more flexibility, enter desired values for key metrics (e.g., throughput, connections). The application will display suitable alternatives based on your entered values.
+
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Using the Application:
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
