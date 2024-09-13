@@ -8,8 +8,6 @@
 </head>
 <body>
 
-
-    <!-- Disclaimer Section -->
     <section id="disclaimer-section">
         <h2>Disclaimer</h2>
         <p id="disclaimer-text">Please note that the following information is intended for informational purposes only. The suggested alternative devices have been selected based on their best match to the End of Life (EoL) device and, in some cases, for being the best device where all metrics are equal to or improved over the EoL device. It's important to consider that customer requirements may dictate that the recommended alternative device is not suitable. Always consult with your Cisco representative if specific requirements need to be met.</p>
@@ -21,16 +19,16 @@
 
     <h1>Cisco Firewall End of Life (EoL) Device Migration Tool</h1>
 
-    <form id="deviceForm">
+    <h2><u>Option One:</u></h2> <form id="deviceForm">
         <label for="deviceSelect">Select an EoL Device:</label>
         <select id="deviceSelect">
             <option value="" selected disabled>Click to select an EoL Device</option>
-            <!-- Options will be added dynamically by JavaScript -->
         </select>
     </form>
 
-    <div id="comparisonResults">
-        <!-- Comparison results will be displayed here dynamically -->
+    <h2><u>Option Two:</u></h2>
+    <div id="filterOptions">
+    </div> <div id="comparisonResults">
     </div>
 
     <div id="noResultsMessage" style="display: none; background-color: yellow; padding: 10px; border: 1px solid red;">
