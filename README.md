@@ -5,12 +5,16 @@ Project Description:
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 This project helps network security administrators, customers and internal employees aligned to security identify suitable Cisco firewall migration options for End-of-Life (EoL) devices. It offers two methods to find alternative firewalls:
 
-Method 1: Select EoL Model
+Option 1: Find Recommended Alternative Cisco Firewalls
 
 Choose your EoL model from the drop-down menu.
 The table will display one or two potential replacements that closely match or exceed the EoL device's key metrics.
 
-Method 2: Enter Custom Metrics
+Option 2: Compare Multiple Cisco Firewalls
+
+Select an EoL Cisco firewall and then compare that device with either one or two newer firewalls.
+
+Option 3: 
 
 For more flexibility, enter desired values for key metrics (e.g., throughput, connections). The application will display suitable alternatives based on your entered values.
 
