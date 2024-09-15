@@ -1,6 +1,7 @@
 /* styles.css */
 
 body {
+
     font-family: 'Helvetica Neue', Arial, sans-serif;
     margin: 20px;
     background-color: #f4f4f4;
@@ -16,6 +17,20 @@ h1 {
     margin-bottom: 30px;
 }
 
+#threeDeviceComparison {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+    #threeDeviceComparison label,
+    #threeDeviceComparison select {
+        display: block;
+        text-align: center;
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
 #disclaimer-section {
     text-align: center;
     background-color: #fff176;
@@ -26,46 +41,52 @@ h1 {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-#deviceForm {
-    margin-bottom: 30px;
+#deviceForm, #threeDeviceComparison {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center; /* Center the items horizontally */
+    align-items: center;
 }
 
-    #deviceForm label {
+    #deviceForm label, #threeDeviceComparison label, #filterForm label {
         display: block;
-        margin-bottom: 5px;
+        margin-bottom: 20px;
         font-weight: 500;
     }
 
-    #deviceForm select {
+    #deviceForm select, #threeDeviceComparison select {
         width: calc(50% - 20px);
         padding: 10px;
         border: 1px solid #ccc;
         border-radius: 5px;
         box-sizing: border-box;
-        margin-bottom: 10px;
-    }
+        margin-bottom: 20px;
 
-    #deviceForm button {
-        background-color: #007bff;
-        border: none;
-        color: white;
-        padding: 12px 24px;
+    }
+    /*To center align option one box*/
+    #deviceForm select, #threeDeviceComparison select {
         text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        cursor: pointer;
-        border-radius: 5px;
-        transition: background-color 0.3s;
     }
 
-        #deviceForm button:hover {
-            background-color: #0056b3;
-        }
+/* Style the "Clear Selection" buttons */
+.clear-selection-button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+    .clear-selection-button:hover {
+        background-color: #0056b3;
+    }
 
 #noResultsMessage {
     display: none;
@@ -131,13 +152,54 @@ img[alt="Network Wizkid logo"] {
 .comparison-table[data-device-type="new"] #disclaimer-section {
     background-color: #fff176 !important;
 }
+
 #filterForm {
     text-align: center; /* Center the content within the form */
 }
 
     #filterForm label,
-    #filterForm input[type="number"] { 
-        display: inline-block; 
-        width: auto; 
-        margin: 0 5px; 
+    #filterForm input[type="number"] {
+        display: inline-block;
+        width: auto;
+        margin: 15px;
     }
+
+/* Highlight positive differences in green */
+.comparison-table .positive-diff {
+    color: green;
+}
+
+/* Highlight negative differences in red */
+.comparison-table .negative-diff {
+    color: red;
+}
+
+/* Form Spacing */
+
+main > section { /* Target direct child sections within <main> */
+  margin-bottom: 30px;
+  padding: 20px;
+  border: 1px solid #e0e0e0; 
+  border-radius: 5px; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Remove the styles from #deviceForm, #threeDeviceComparison, #filterForm */
+#deviceForm, #threeDeviceComparison, #filterForm {
+  margin-bottom: 0; /* Reset margin-bottom if it was previously set */
+  padding: 0; 
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+/* Focus States for Interactive Elements */
+
+#deviceSelect:focus,
+#deviceSelectEoL:focus,
+#deviceSelectCompare1:focus,
+#deviceSelectCompare2:focus,
+#filterForm input[type="number"]:focus,
+.clear-selection-button:focus {
+    outline: 2px solid #007bff; /* Blue outline on focus */
+    outline-offset: 2px; /* Slight offset for better visibility */
+}

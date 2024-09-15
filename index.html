@@ -8,32 +8,103 @@
 </head>
 <body>
 
-    <section id="disclaimer-section">
-        <h2>Disclaimer</h2>
-        <p id="disclaimer-text">Please note that the following information is intended for informational purposes only. The suggested alternative devices have been selected based on their best match to the End of Life (EoL) device and, in some cases, for being the best device where all metrics are equal to or improved over the EoL device. It's important to consider that customer requirements may dictate that the recommended alternative device is not suitable. Always consult with your Cisco representative if specific requirements need to be met.</p>
-        <p><b>To learn more about this tool including instructions on how to use it, click <a href="https://networkwizkid.com/cisco-eol-device-migration-tool/" target="_blank">here</a>.</b></p>
-        <p>Visit <a href="https://www.networkwizkid.com" target="_blank">www.networkwizkid.com</a> for more cool articles.</p>
-    </section>
+    <header>
+        <img src="https://networkwizkid.com/wp-content/uploads/2024/09/new-logo-final-v3-full-e1677752694770.png" width="300" height="100" alt="Network Wizkid logo" />
+        <h1>Cisco Firewall End of Life (EoL) Device Migration Tool</h1>
+    </header>
 
-    <img src="https://networkwizkid.com/wp-content/uploads/2022/10/cropped-new-logo-final-v3.jpg" width="200" height="100" alt="Network Wizkid logo" />
+    <main>
+        <section id="disclaimer-section" aria-label="Disclaimer">
+            <h2>Disclaimer</h2>
+            <p id="disclaimer-text">
+                Please note that the following information is intended for informational purposes only.
+                The suggested alternative devices have been selected based on their best match to the
+                End of Life (EoL) device and, in some cases, for being the best device where all metrics
+                are equal to or improved over the EoL device. It's important to consider that customer
+                requirements may dictate that the recommended alternative device is not suitable.
+                Always consult with your Cisco representative if specific requirements need to be met.
+            </p>
+            <p>
+                <b>
+                    To learn more about this tool including instructions on how to use it, click
+                    <a href="https://networkwizkid.com/cisco-eol-device-migration-tool/" target="_blank">here</a>.
+                </b>
+            </p>
+            <p>
+                Visit <a href="https://www.networkwizkid.com" target="_blank">www.networkwizkid.com</a>
+                for more cool articles.
+            </p>
+        </section>
 
-    <h1>Cisco Firewall End of Life (EoL) Device Migration Tool</h1>
+        <section>
+            <h2><u>Option 1: Find Recommended Alternative Cisco Firewalls</u></h2>
+            <div id="threeDeviceComparison">
+                <p>Select an EoL firewall device to see recommended replacements based on key capabilities.</p>
+            </div>
+            <form id="deviceForm">
+               
+                <select id="deviceSelect" aria-describedby="deviceSelectLabel">
+                    <option value="" selected disabled>Select an EoL Device</option>
+                </select>
 
-    <h2><u>Option One:</u></h2> <form id="deviceForm">
-        <label for="deviceSelect">Select an EoL Device:</label>
-        <select id="deviceSelect">
-            <option value="" selected disabled>Click to select an EoL Device</option>
-        </select>
-    </form>
+            </form>
+            <div id="threeDeviceComparison">
+                <button type="button" id="clearButton" class="clear-selection-button">Clear Selection</button>
+                </div>
+                <div id="comparisonResults" aria-live="polite">
+                </div>
+</section>
 
-    <h2><u>Option Two:</u></h2>
-    <div id="filterOptions">
-    </div> <div id="comparisonResults">
-    </div>
+        <section>
+            <h2><u>Option 2: Compare Multiple Cisco Firewalls</u></h2>
+            
+            <div id="threeDeviceComparison">
+                <p>Select an EoL firewall device and up to two new firewalls to compare their metrics side-by-side.</p>
+               
+                <select id="deviceSelectEoL" aria-describedby="deviceSelectEoLLabel">
+                    <option value="" selected disabled> Select the EoL Device</option>
+                </select>
 
-    <div id="noResultsMessage" style="display: none; background-color: yellow; padding: 10px; border: 1px solid red;">
-        Based on your requirements, no comparable firewall devices exist.
-    </div>
+                
+                <select id="deviceSelectCompare1" aria-describedby="deviceSelectCompare1Label">
+                    <option value="" selected disabled>Select the First New Firewall</option>
+                </select>
+
+               
+                <select id="deviceSelectCompare2" aria-describedby="deviceSelectCompare2Label">
+                    <option value="" selected disabled>Select the Second New Firewall (Optional)</option>
+                </select>
+
+                <button type="button" id="clearButtonOptionTwo" class="clear-selection-button">Clear Selection</button>
+            </div>
+
+            <div id="threeDeviceComparisonResults" aria-live="polite">
+            </div>
+        </section>
+
+        <section>
+            <h2><u>Option 3: Filter for New Cisco Firewalls Based on Key Metrics</u></h2>
+            
+            <form id="filterForm">
+                <div id="filterOptions">
+                    <p>Set filter criteria to find a new Cisco secure firewall that meets your specific requirements based on several key metrics.</p>
+                </div>
+
+                <div class="button-container">
+                    <button type="button" id="filterButton" class="clear-selection-button">Apply Filters</button>
+                    <button type="button" id="clearFiltersButton" class="clear-selection-button">Clear Filters</button>
+                </div>
+            </form>
+
+            <div id="filteredNewDevicesResults" aria-live="polite"> </div> <div id="comparisonResults" aria-live="polite">
+            </div>
+        </section>
+
+        <div id="noResultsMessage" class="error-message" style="display: none;">
+            Based on your requirements, no comparable firewall devices exist.
+        </div>
+
+    </main>
 
     <script src="script.js"></script>
 </body>

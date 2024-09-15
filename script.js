@@ -396,46 +396,76 @@ const metrics = [
   { name: "Maximum VPN Peers", key: "MaximumVPNPeers" }
 ];
 
-// Populate the dropdown list dynamically
+// Get references to HTML elements
 const deviceSelect = document.getElementById('deviceSelect');
+const deviceSelectEoL = document.getElementById('deviceSelectEoL');
+const deviceSelectCompare1 = document.getElementById('deviceSelectCompare1');
+const deviceSelectCompare2 = document.getElementById('deviceSelectCompare2');
 const comparisonResults = document.getElementById('comparisonResults');
+const threeDeviceComparisonResults = document.getElementById('threeDeviceComparisonResults');
+const filterOptions = document.getElementById('filterOptions');
+const noResultsMessage = document.getElementById('noResultsMessage');
+const clearButtonOptionTwo = document.getElementById('clearButtonOptionTwo');
+const filteredNewDevicesResults = document.getElementById('filteredNewDevicesResults');
 
-// Populate dropdown with EoL devices
+
+// Populate dropdown with EoL devices for Option One
 Object.keys(devices).forEach(device => {
-  let option = document.createElement('option');
-  option.value = device;
-  option.textContent = device;
-  deviceSelect.appendChild(option);
+    let option = document.createElement('option');
+    option.value = device;
+    option.textContent = device;
+    deviceSelect.appendChild(option);
 });
 
-// Helper functions 
+// Populate EoL dropdown for Option Two
+Object.keys(devices).forEach(device => {
+    let option = document.createElement('option');
+    option.value = device;
+    option.textContent = device;
+    deviceSelectEoL.appendChild(option);
+});
+
+// Populate new device dropdowns for Option Two
+Object.keys(newdevices).forEach(device => {
+    let option1 = document.createElement('option');
+    option1.value = device;
+    option1.textContent = device;
+    deviceSelectCompare1.appendChild(option1);
+
+    let option2 = document.createElement('option');
+    option2.value = device;
+    option2.textContent = device;
+    deviceSelectCompare2.appendChild(option2);
+});
+
+// Helper functions 
 function extractNumberAndUnit(value) {
-  if (typeof value !== 'string') return { number: null, unit: 'No Data Available' };
-  const match = value.match(/([\d,.]+)\s*(.*)/);
-  if (match) {
-    return { number: parseFloat(match[1].replace(/,/g, '')), unit: match[2].trim() };
-  }
-  return { number: null, unit: 'No Data Available' };
+    if (typeof value !== 'string') return { number: null, unit: 'No Data Available' };
+    const match = value.match(/([\d,.]+)\s*(.*)/);
+    if (match) {
+        return { number: parseFloat(match[1].replace(/,/g, '')), unit: match[2].trim() };
+    }
+    return { number: null, unit: 'No Data Available' };
 }
 
 function formatNumber(value) {
-  if (!value) return 'No Data Available';
-  const { number, unit } = extractNumberAndUnit(value);
-  if (number === null) return 'No Data Available';
-  return number.toLocaleString() + (unit ? ` ${unit}` : ''); 
+    if (!value) return 'No Data Available';
+    const { number, unit } = extractNumberAndUnit(value);
+    if (number === null) return 'No Data Available';
+    return number.toLocaleString() + (unit ? ` ${unit}` : '');
 }
 
 function calculateDifference(eolValue, altValue) {
-  const eolData = extractNumberAndUnit(eolValue);
-  const altData = extractNumberAndUnit(altValue);
+    const eolData = extractNumberAndUnit(eolValue);
+    const altData = extractNumberAndUnit(altValue);
 
-  if (eolData.number === null || altData.number === null) {
-    return 'No Data Available'; 
-  }
+    if (eolData.number === null || altData.number === null) {
+        return { difference: 'No Data Available', positive: null };
+    }
 
-  const diff = altData.number - eolData.number;
-  const sign = diff >= 0 ? '+' : '-'; 
-  return `${sign}${Math.abs(diff).toLocaleString()} ${altData.unit}`; 
+    const diff = altData.number - eolData.number;
+    const sign = diff >= 0 ? '+' : '-';
+    return { difference: `${sign}${Math.abs(diff).toLocaleString()} ${altData.unit}`, positive: diff >= 0 };
 }
 
 // Add filter inputs for each metric
@@ -452,11 +482,11 @@ const metricsWithGbps = [
 ];
 
 metrics.forEach(metric => {
-    const filterLabel = document.createElement('label');
+    const filterLabel = document.createElement('label');    
 
     // Check if the current metric is in the list to add "Gbps"
     if (metricsWithGbps.includes(metric.name)) {
-        filterLabel.textContent = `${metric.name} (Gbps) (Min): `;
+        filterLabel.textContent = `${metric.name} (Min, Gbps): `;
     } else {
         // Keep the original "(Min)" label for other metrics
         filterLabel.textContent = `${metric.name} (Min): `;
@@ -465,36 +495,44 @@ metrics.forEach(metric => {
     const filterInput = document.createElement('input');
     filterInput.type = 'number';
     filterInput.id = `filter_${metric.key}`;
+    filterInput.placeholder = "Enter minimum value"; 
     filterForm.appendChild(filterLabel);
     filterForm.appendChild(filterInput);
     filterForm.appendChild(document.createElement('br'));
+
+    // Set placeholder based on the metric name
+    switch (metric.name) {
+        case "ASA Stateful Inspection Firewall Throughput":
+        case "ASA Stateful Inspection Multiprotocol Throughput":
+        case "FTD Throughput with FW and AVC":
+        case "FTD Throughput with FW, AVC and IPS":
+        case "IPSec VPN Throughput":
+            filterInput.placeholder = "Example: 10";
+            break;
+        case "FTD Concurrent Firewall Connections":
+            filterInput.placeholder = "Example: 100";
+            break;
+        case "FTD New Connections per Second":
+            filterInput.placeholder = "Example: 1000";
+            break;
+        case "Maximum VPN Peers":
+            filterInput.placeholder = "Example: 50";
+            break;
+        default:
+            filterInput.placeholder = "Minimum value";
+    }
+
 });
 
-// Add a button to trigger filtering
-const filterButton = document.createElement('button');
-filterButton.type = 'button'; 
-filterButton.textContent = 'Apply Filters';
-filterForm.appendChild(filterButton);
+// Filter form displayed with HTML
+filterOptions.appendChild(filterForm);
 
-// Add a "Clear Filters" button
-const clearFiltersButton = document.createElement('button');
-clearFiltersButton.type = 'button';
-clearFiltersButton.textContent = 'Clear Filters';
-filterForm.appendChild(clearFiltersButton);
-
-// Add a "Clear Selection" button next to the dropdown
-const clearButton = document.createElement('button');
-clearButton.type = 'button';
-clearButton.textContent = 'Clear Selection';
-deviceSelect.parentNode.insertBefore(clearButton, deviceSelect.nextSibling);
-
-// Insert the filter form before the comparison results
-comparisonResults.parentNode.insertBefore(filterForm, comparisonResults);
-
-// Function to apply filters
+// Function to apply filters (modified to handle three-device comparison)
 function applyFilters() {
     const selectedDevice = deviceSelect.value;
-    const noResultsMessage = document.getElementById('noResultsMessage');
+    const selectedDeviceEoL = deviceSelectEoL.value;
+    const selectedDeviceCompare1 = deviceSelectCompare1.value;
+    const selectedDeviceCompare2 = deviceSelectCompare2.value;
 
     // Get filter values
     const filters = {};
@@ -505,122 +543,263 @@ function applyFilters() {
         }
     });
 
-    if (selectedDevice) {
-        const deviceData = devices[selectedDevice];
-        if (!deviceData) return;
+    // Clear previous results and hide the "no results" message
+    comparisonResults.innerHTML = '';
+    threeDeviceComparisonResults.innerHTML = '';
+    noResultsMessage.style.display = 'none';
 
-        const filteredAlternatives = deviceData.alternatives.filter(alternative => {
-            const altData = newdevices[alternative];
-            return Object.keys(filters).every(metricKey => {
-                const { number: eolNumber } = extractNumberAndUnit(deviceData[metricKey]);
-                const { number: altNumber } = extractNumberAndUnit(altData[metricKey]);
-                return altNumber !== null && altNumber >= filters[metricKey] &&
-                    (eolNumber !== null ? altNumber >= eolNumber : true);
-            });
+    if (selectedDeviceEoL) { // Check if an EoL device is selected
+        if (selectedDeviceCompare1 && selectedDeviceCompare2) {
+            // Compare three devices if two comparison devices are selected
+            compareThreeDevices(selectedDeviceEoL, selectedDeviceCompare1, selectedDeviceCompare2);
+        } else if (selectedDeviceCompare1 || selectedDeviceCompare2) {
+            // Compare two devices if one comparison device is selected
+            const deviceToCompare = selectedDeviceCompare1 || selectedDeviceCompare2;
+            compareTwoDevices(selectedDeviceEoL, deviceToCompare, threeDeviceComparisonResults);
+        } 
+    } else if (selectedDevice) {
+        // Handle Option One: Filter and display alternatives
+        const deviceFound = filterAndDisplayAlternatives(selectedDevice, filters);
+        noResultsMessage.style.display = deviceFound ? 'none' : 'block';
+    } else {
+        // Handle no selection: Display all new devices if no EoL device is selected
+        const deviceFound = displayFilteredNewDevices(filters);
+        noResultsMessage.style.display = deviceFound ? 'none' : 'block';
+    }
+}
+
+// Handle the comparison between two devices
+function compareTwoDevices(device1, device2, resultsContainer) {
+    const device1Data = devices[device1] || newdevices[device1];
+    const device2Data = devices[device2] || newdevices[device2];
+
+    if (!device1Data || !device2Data) return false;
+
+    let resultsHtml = `<h2>Comparison between ${device1} and ${device2}</h2>`;
+    resultsHtml += `
+  <table class="comparison-table"> 
+    <tr>
+      <th>Metric</th>
+      <th>${device1}</th>
+      <th>${device2}</th>
+      <th>Difference</th>
+    </tr>`;
+
+    metrics.forEach(metric => {
+        const value1 = device1Data[metric.key];
+        const value2 = device2Data[metric.key];
+        const { difference, positive } = calculateDifference(value1, value2);
+        const diffClass = positive !== null ? (positive ? 'positive-diff' : 'negative-diff') : '';
+
+        resultsHtml += `<tr> 
+      <td><b>${metric.name}:</b></td>
+      <td>${formatNumber(value1)}</td>
+      <td>${formatNumber(value2)}</td>
+      <td class="${diffClass}">${difference}</td>
+    </tr>`;
+    });
+
+    resultsHtml += `</table>`;
+
+    resultsContainer.innerHTML = resultsHtml;
+    noResultsMessage.style.display = 'none';
+
+    return true;
+}
+
+// Handle the comparison between three devices
+function compareThreeDevices(device1, device2, device3) {
+    const device1Data = devices[device1] || newdevices[device1];
+    const device2Data = devices[device2] || newdevices[device2];
+    const device3Data = devices[device3] || newdevices[device3];
+
+    if (!device1Data || !device2Data || !device3Data) return false;
+
+    let resultsHtml = `<h2>Comparison between ${device1}, ${device2} and ${device3}</h2>`;
+    resultsHtml += `
+  <table class="comparison-table"> 
+    <tr>
+      <th>Metric</th>
+      <th>${device1}</th>
+      <th>${device2}</th>
+      <th>${device3}</th>
+      <th>Difference (Device 2 vs Device 1)</th> 
+      <th>Difference (Device 3 vs Device 1)</th> 
+    </tr>`;
+
+    metrics.forEach(metric => {
+        const value1 = device1Data[metric.key];
+        const value2 = device2Data[metric.key];
+        const value3 = device3Data[metric.key];
+
+        const diff12 = calculateDifference(value1, value2);
+        const diff13 = calculateDifference(value1, value3);
+
+        const diffClass12 = diff12.positive !== null ? (diff12.positive ? 'positive-diff' : 'negative-diff') : '';
+        const diffClass13 = diff13.positive !== null ? (diff13.positive ? 'positive-diff' : 'negative-diff') : '';
+
+        resultsHtml += `<tr> 
+      <td><b>${metric.name}:</b></td>
+      <td>${formatNumber(value1)}</td>
+      <td>${formatNumber(value2)}</td>
+      <td>${formatNumber(value3)}</td>
+      <td class="${diffClass12}">${diff12.difference}</td>
+      <td class="${diffClass13}">${diff13.difference}</td>
+    </tr>`;
+    });
+
+    resultsHtml += `</table>`;
+
+    threeDeviceComparisonResults.innerHTML = resultsHtml;
+    noResultsMessage.style.display = 'none';
+
+    return true;
+}
+
+function displayFilteredNewDevices(filters) {
+    const filteredNewDevices = Object.keys(newdevices).filter(newDevice => {
+        const newDeviceData = newdevices[newDevice];
+        return Object.keys(filters).every(metricKey => {
+            const { number: newDeviceNumber } = extractNumberAndUnit(newDeviceData[metricKey]);
+            return newDeviceNumber !== null && newDeviceNumber >= filters[metricKey];
         });
+    });
 
-        // Generate the comparison table or show "no results" message
-        if (filteredAlternatives.length === 0) {
-            noResultsMessage.style.display = 'block';
-            comparisonResults.innerHTML = ''; // Clear previous results
-        } else {
-            noResultsMessage.style.display = 'none';
+    // Generate the comparison table or show "no results" message
+    if (filteredNewDevices.length === 0 || Object.keys(filters).length === 0) {
+        noResultsMessage.style.display = 'none'; // Hide the "no results" message when filters are cleared
+        comparisonResults.innerHTML = '';
+        threeDeviceComparisonResults.innerHTML = '';
+        filteredNewDevicesResults.innerHTML = ""; // Clear the filteredNewDevicesResults div
+        return false;
+    } else {
+        noResultsMessage.style.display = 'none';
 
-            let resultsHtml = `<h2>Comparison for ${selectedDevice}</h2>`;
-            resultsHtml += `
-            <table class="comparison-table"> 
-                <tr>
-                <th>Metric</th>
-                <th>${selectedDevice} (EoL Device)</th>
-                ${filteredAlternatives.map(alt => `<th>${alt} (Alternative Device)</th><th>Difference</th>`).join('')}
-                </tr>`;
+        let resultsHtml = `<h2>Available Migration Options</h2>`;
+        resultsHtml += `
+      <table class="comparison-table" data-device-type="new"> 
+        <tr>
+          <th>New Device</th>
+          ${metrics.map(metric => `<th>${metric.name}</th>`).join('')}
+        </tr>`;
+
+        filteredNewDevices.forEach(newDevice => {
+            const newDeviceData = newdevices[newDevice];
+            resultsHtml += `<tr>
+        <td><b>${newDevice}</b></td>`;
 
             metrics.forEach(metric => {
-                resultsHtml += `<tr> 
-                <td><b>${metric.name}:</b></td>
-                <td>${formatNumber(deviceData[metric.key]) || 'No Comparable Data Available'}</td>`;
-
-                filteredAlternatives.forEach(alternative => {
-                    const altData = newdevices[alternative];
-                    const eolValue = deviceData[metric.key];
-                    const altValue = altData ? altData[metric.key] : null;
-
-                    resultsHtml += `<td>${formatNumber(altValue) || 'No Comparable Data Available'}</td>`;
-                    resultsHtml += `<td>${calculateDifference(eolValue, altValue)}</td>`;
-                });
-
-                resultsHtml += `</tr>`;
+                resultsHtml += `<td>${formatNumber(newDeviceData[metric.key]) || 'No Comparable Data Available'}</td>`;
             });
 
-            resultsHtml += `</table>`;
-
-            comparisonResults.innerHTML = resultsHtml;
-        }
-    } else {
-        const filteredNewDevices = Object.keys(newdevices).filter(newDevice => {
-            const newDeviceData = newdevices[newDevice];
-            return Object.keys(filters).every(metricKey => {
-                const { number: newDeviceNumber } = extractNumberAndUnit(newDeviceData[metricKey]);
-                return newDeviceNumber !== null && newDeviceNumber >= filters[metricKey];
-            });
+            resultsHtml += `</tr>`;
         });
 
-        // Generate the comparison table or show "no results" message
-        if (filteredNewDevices.length === 0) {
-            noResultsMessage.style.display = 'block';
-            comparisonResults.innerHTML = ''; // Clear previous results
-        } else {
-            noResultsMessage.style.display = 'none';
+        resultsHtml += `</table>`;
 
-            let resultsHtml = `<h2>Available Migration Options</h2>`;
-            resultsHtml += `
-            <table class="comparison-table"> 
-                <tr>
-                <th>New Device</th>
-                ${metrics.map(metric => `<th>${metric.name}</th>`).join('')}
-                </tr>`;
+        filteredNewDevicesResults.innerHTML = resultsHtml;
+        threeDeviceComparisonResults.innerHTML = '';
+        return true;
+    }
+}
+function filterAndDisplayAlternatives(selectedDevice, filters) {
+    const deviceData = devices[selectedDevice];
+    if (!deviceData) {
+        noResultsMessage.style.display = 'block';
+        comparisonResults.innerHTML = '';
+        threeDeviceComparisonResults.innerHTML = '';
+        return false;
+    }
 
-            filteredNewDevices.forEach(newDevice => {
-                const newDeviceData = newdevices[newDevice];
-                resultsHtml += `<tr>
-                <td><b>${newDevice}</b></td>`;
+    const filteredAlternatives = deviceData.alternatives.filter(alternative => {
+        const altData = newdevices[alternative];
+        return Object.keys(filters).every(metricKey => {
+            const { number: eolNumber } = extractNumberAndUnit(deviceData[metricKey]);
+            const { number: altNumber } = extractNumberAndUnit(altData[metricKey]);
+            return altNumber !== null && altNumber >= filters[metricKey] &&
+                (eolNumber !== null ? altNumber >= eolNumber : true);
+        });
+    });
 
-                metrics.forEach(metric => {
-                    resultsHtml += `<td>${formatNumber(newDeviceData[metric.key]) || 'No Comparable Data Available'}</td>`;
-                });
+    // Generate the comparison table or show "no results" message
+    if (filteredAlternatives.length === 0) {
+        noResultsMessage.style.display = 'block';
+        comparisonResults.innerHTML = '';
+        return false;
+    } else {
+        noResultsMessage.style.display = 'none';
 
-                resultsHtml += `</tr>`;
+        let resultsHtml = `<h2>Comparison for ${selectedDevice}</h2>`;
+        resultsHtml += `
+    <table class="comparison-table"> 
+      <tr>
+        <th>Metric</th>
+        <th>${selectedDevice} (EoL Device)</th>
+        ${filteredAlternatives.map(alt => `<th>${alt} (Alternative Device)</th><th>Difference</th>`).join('')}
+      </tr>`;
+
+        metrics.forEach(metric => {
+            resultsHtml += `<tr> 
+        <td><b>${metric.name}:</b></td>
+        <td>${formatNumber(deviceData[metric.key]) || 'No Comparable Data Available'}</td>`;
+
+            filteredAlternatives.forEach(alternative => {
+                const altData = newdevices[alternative];
+                const eolValue = deviceData[metric.key];
+                const altValue = altData ? altData[metric.key] : null;
+
+                resultsHtml += `<td>${formatNumber(altValue) || 'No Comparable Data Available'}</td>`;
+
+                const diffResult = calculateDifference(eolValue, altValue);
+                const diffClass = diffResult.positive ? 'positive-diff' : 'negative-diff';
+                resultsHtml += `<td class="${diffClass}">${diffResult.difference}</td>`;
             });
 
-            resultsHtml += `</table>`;
+            resultsHtml += `</tr>`;
+        });
 
-            comparisonResults.innerHTML = resultsHtml;
-        }
+        resultsHtml += `</table>`;
+
+        comparisonResults.innerHTML = resultsHtml;
+        threeDeviceComparisonResults.innerHTML = '';
+        return true;
     }
 }
 
 // Function to clear filters
 function clearFilters() {
-  metrics.forEach(metric => {
-    document.getElementById(`filter_${metric.key}`).value = ''; 
-  });
-  applyFilters(); 
+    metrics.forEach(metric => {
+        document.getElementById(`filter_${metric.key}`).value = '';
+    });
+    noResultsMessage.style.display = 'none'; // Explicitly hide the "no results" message
+    comparisonResults.innerHTML = ''; // Clear the results table for Option Three
+    threeDeviceComparisonResults.innerHTML = '';
+    filteredNewDevicesResults.innerHTML = "";
+   
 }
 
-// Attach event listener to the filter button
+// Attach event listeners
 filterButton.addEventListener('click', applyFilters);
-
-// Attach event listener to the clear filters button
 clearFiltersButton.addEventListener('click', clearFilters);
-
-// Display the comparison when a device is selected OR filters are applied
 deviceSelect.addEventListener('change', applyFilters);
+deviceSelectEoL.addEventListener('change', applyFilters);
+deviceSelectCompare1.addEventListener('change', applyFilters);
+deviceSelectCompare2.addEventListener('change', applyFilters);
 
-// Add event listener to the clear button
+// Button clear, option one
 clearButton.addEventListener('click', () => {
-  deviceSelect.selectedIndex = 0; 
-  applyFilters(); 
+    deviceSelect.selectedIndex = 0;
+    comparisonResults.innerHTML = ''; // Clear the results table
+    noResultsMessage.style.display = 'none'; // Hide the "no results" message
+    
 });
 
-// Display the initial comparison table (optional)
-applyFilters(); 
+// Add event listener for Option Two clear button
+clearButtonOptionTwo.addEventListener('click', () => {
+    deviceSelectEoL.selectedIndex = 0;
+    deviceSelectCompare1.selectedIndex = 0;
+    deviceSelectCompare2.selectedIndex = 0;
+    threeDeviceComparisonResults.innerHTML = ''; // Clear the results table for Option Two
+    noResultsMessage.style.display = 'none';
+  
+});
