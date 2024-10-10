@@ -200,24 +200,24 @@ const newdevices = {
         MaximumVPNPeers: '800'
     },
      'Secure Firewall 1210': { 
-        StatefulInspectionThroughput: 'No Data Available',  
-        StatefulInspectionThroughputMultiprotocol: 'No Data Available',
-        StatefulInspectionThroughputNoIPS: '3 Gbps',  
-        StatefulInspectionThroughputIPS: '3 Gbps',
-        ConcurrentConnections: 'No Data Available', 
-        newConnections: 'No Data Available', 
-        IPSecVPNThroughput: '2 Gbps',
-        MaximumVPNPeers: 'No Data Available'
-    },
-     'Secure Firewall 1220': { 
-        StatefulInspectionThroughput: 'No Data Available',  
-        StatefulInspectionThroughputMultiprotocol: 'No Data Available',
+        StatefulInspectionThroughput: '6.5 Gbps',  
+        StatefulInspectionThroughputMultiprotocol: '6 Gbps',
         StatefulInspectionThroughputNoIPS: '6 Gbps',  
         StatefulInspectionThroughputIPS: '6 Gbps',
-        ConcurrentConnections: 'No Data Available', 
-        newConnections: 'No Data Available', 
-        IPSecVPNThroughput: '4 Gbps',
-        MaximumVPNPeers: 'No Data Available'
+        ConcurrentConnections: '200,000', 
+        newConnections: '35,000', 
+        IPSecVPNThroughput: '5 Gbps',
+        MaximumVPNPeers: '200'
+    },
+     'Secure Firewall 1220': { 
+        StatefulInspectionThroughput: '15 Gbps',  
+        StatefulInspectionThroughputMultiprotocol: '12 Gbps',
+        StatefulInspectionThroughputNoIPS: '9 Gbps',  
+        StatefulInspectionThroughputIPS: '9 Gbps',
+        ConcurrentConnections: '300,000', 
+        newConnections: '50,000', 
+        IPSecVPNThroughput: '10 Gbps',
+        MaximumVPNPeers: '300'
     },
      // Removed all 2100 series devices as EoL will be annouced soon
      /*
