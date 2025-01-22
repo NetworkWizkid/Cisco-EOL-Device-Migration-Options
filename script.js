@@ -1,73 +1,120 @@
 // Cisco Firewall Device Metrics
 const devices = {
-    'ASA 5506': { 
-        StatefulInspectionThroughput: '0.75 Gbps',  
+    'ASA 5506': {
+        StatefulInspectionThroughput: '0.75 Gbps',
         StatefulInspectionThroughputMultiprotocol: '0.3 Gbps',
-        StatefulInspectionThroughputNoIPS: '0.25 Gbps', 
-        StatefulInspectionThroughputIPS: '0.125 Gbps', 
-        ConcurrentConnections: '50,000', 
-        newConnections: '5,000', 
+        StatefulInspectionThroughputNoIPS: '0.25 Gbps',
+        StatefulInspectionThroughputIPS: '0.125 Gbps',
+        ConcurrentConnections: '50,000',
+        newConnections: '5,000',
         IPSecVPNThroughput: '0.1 Gbps',
         MaximumVPNPeers: '50',
         alternatives: ['Secure Firewall 1010']
     },
-    'ASA 5508': { 
-        StatefulInspectionThroughput: '1 Gbps',  
+    'ASA 5508': {
+        StatefulInspectionThroughput: '1 Gbps',
         StatefulInspectionThroughputMultiprotocol: '0.5 Gbps',
-        StatefulInspectionThroughputNoIPS: '0.65 Gbps', 
+        StatefulInspectionThroughputNoIPS: '0.65 Gbps',
         StatefulInspectionThroughputIPS: '0.6 Gbps',
-        ConcurrentConnections: '100,000', 
-        newConnections: '10,000', 
+        ConcurrentConnections: '100,000',
+        newConnections: '10,000',
         IPSecVPNThroughput: '0.175 Gbps',
         MaximumVPNPeers: '100',
         alternatives: ['Secure Firewall 1010', 'Secure Firewall 1120']
     },
-    'ASA 5516': { 
-        StatefulInspectionThroughput: '1.8 Gbps',  
+    'ASA 5516': {
+        StatefulInspectionThroughput: '1.8 Gbps',
         StatefulInspectionThroughputMultiprotocol: '0.9 Gbps',
-        StatefulInspectionThroughputNoIPS: '1.4 Gbps', 
+        StatefulInspectionThroughputNoIPS: '1.4 Gbps',
         StatefulInspectionThroughputIPS: '1.2 Gbps',
-        ConcurrentConnections: '250,000', 
-        newConnections: '20,000', 
+        ConcurrentConnections: '250,000',
+        newConnections: '20,000',
         IPSecVPNThroughput: '0.25 Gbps',
         MaximumVPNPeers: '300',
         alternatives: ['Secure Firewall 1120', 'Secure Firewall 1140']
     },
-    'ASA 5525': { 
-        StatefulInspectionThroughput: '2 Gbps',  
+    'ASA 5525': {
+        StatefulInspectionThroughput: '2 Gbps',
         StatefulInspectionThroughputMultiprotocol: '1 Gbps',
-        StatefulInspectionThroughputNoIPS: '1.6 Gbps', 
+        StatefulInspectionThroughputNoIPS: '1.6 Gbps',
         StatefulInspectionThroughputIPS: '1.5 Gbps',
-        ConcurrentConnections: '500,000', 
-        newConnections: '20,000', 
+        ConcurrentConnections: '500,000',
+        newConnections: '20,000',
         IPSecVPNThroughput: '0.3 Gbps',
         MaximumVPNPeers: '300',
         alternatives: ['Secure Firewall 1140', 'Secure Firewall 1150']
     },
-    'ASA 5545': { 
-        StatefulInspectionThroughput: '3 Gbps',  
+    'ASA 5545': {
+        StatefulInspectionThroughput: '3 Gbps',
         StatefulInspectionThroughputMultiprotocol: '1.5 Gbps',
-        StatefulInspectionThroughputNoIPS: '1.7 Gbps', 
+        StatefulInspectionThroughputNoIPS: '1.7 Gbps',
         StatefulInspectionThroughputIPS: '1.6 Gbps',
-        ConcurrentConnections: '750,000', 
-        newConnections: '30,000', 
+        ConcurrentConnections: '750,000',
+        newConnections: '30,000',
         IPSecVPNThroughput: '0.4 Gbps',
         MaximumVPNPeers: '400',
         alternatives: ['Secure Firewall 1140', 'Secure Firewall 3110']
     },
-    'ASA 5555': { 
-        StatefulInspectionThroughput: '4 Gbps', 
-        StatefulInspectionThroughputMultiprotocol: '2 Gbps', 
-        StatefulInspectionThroughputNoIPS: '1.8 Gbps', 
+    'ASA 5555': {
+        StatefulInspectionThroughput: '4 Gbps',
+        StatefulInspectionThroughputMultiprotocol: '2 Gbps',
+        StatefulInspectionThroughputNoIPS: '1.8 Gbps',
         StatefulInspectionThroughputIPS: '1.7 Gbps',
-        ConcurrentConnections: '1,000,000', 
-        newConnections: '50,000', 
+        ConcurrentConnections: '1,000,000',
+        newConnections: '50,000',
         IPSecVPNThroughput: '0.7 Gbps',
         MaximumVPNPeers: '700',
         alternatives: ['Secure Firewall 1150', 'Secure Firewall 3110']
     },
-    // Not included the 4110 as 1YR licenses are still an option
-    /*
+    // 5YR License EOL 27th May 2025. 1 & 3 Year Licenses still available
+    'Firepower 2110': {
+        StatefulInspectionThroughput: '3 Gbps',
+        StatefulInspectionThroughputMultiprotocol: '1.5 Gbps',
+        StatefulInspectionThroughputNoIPS: '2.6 Gbps',
+        StatefulInspectionThroughputIPS: '2.6 Gbps',
+        ConcurrentConnections: '1,000,000',
+        newConnections: '14,000',
+        IPSecVPNThroughput: '0.95 Gbps',
+        MaximumVPNPeers: '1,500',
+        alternatives: ['Secure Firewall 3105'],
+    },
+    // 5YR License EOL 27th May 2025. 1 & 3 Year Licenses still available
+    'Firepower 2120': {
+        StatefulInspectionThroughput: '6 Gbps',
+        StatefulInspectionThroughputMultiprotocol: '3 Gbps',
+        StatefulInspectionThroughputNoIPS: '3.4 Gbps',
+        StatefulInspectionThroughputIPS: '3.4 Gbps',
+        ConcurrentConnections: '1,500,000',
+        newConnections: '18,000',
+        IPSecVPNThroughput: '1.2 Gbps',
+        MaximumVPNPeers: '3,500',
+        alternatives: ['Secure Firewall 3110', 'Secure Firewall 3120']
+    },
+    // 5YR License EOL 27th May 2025. 1 & 3 Year Licenses still available
+    'Firepower 2130': {
+        StatefulInspectionThroughput: '10 Gbps',
+        StatefulInspectionThroughputMultiprotocol: '5 Gbps',
+        StatefulInspectionThroughputNoIPS: '5.4 Gbps',
+        StatefulInspectionThroughputIPS: '5.4 Gbps',
+        ConcurrentConnections: '2,000,000',
+        newConnections: '30,000',
+        IPSecVPNThroughput: '1.9 Gbps',
+        MaximumVPNPeers: '7,500',
+        alternatives: ['Secure Firewall 3120', 'Secure Firewall 3130']
+    },
+    // 5YR License EOL 27th May 2025. 1 & 3 Year Licenses still available
+    'Firepower 2140': {
+        StatefulInspectionThroughput: '20 Gbps',
+        StatefulInspectionThroughputMultiprotocol: '10 Gbps',
+        StatefulInspectionThroughputNoIPS: '10.4 Gbps',
+        StatefulInspectionThroughputIPS: '10.4 Gbps',
+        ConcurrentConnections: '3,000,000',
+        newConnections: '57,000',
+        IPSecVPNThroughput: '3.6 Gbps',
+        MaximumVPNPeers: '10,000',
+        alternatives: ['Secure Firewall 3120', 'Secure Firewall 3130']
+    },
+    // 1YR licenses are still an option
     'Firepower 4110': { 
         StatefulInspectionThroughput: '35 Gbps', 
         StatefulInspectionThroughputMultiprotocol: '15 Gbps',
@@ -79,7 +126,6 @@ const devices = {
         MaximumVPNPeers: '10,000',
         alternatives: ['Secure Firewall 3110', 'Secure Firewall 3140']
     },
-    */
     'Firepower 4120': { 
         StatefulInspectionThroughput: '60 Gbps', 
         StatefulInspectionThroughputMultiprotocol: '30 Gbps',
@@ -219,49 +265,6 @@ const newdevices = {
         IPSecVPNThroughput: '10 Gbps',
         MaximumVPNPeers: '300'
     },
-     // Removed all 2100 series devices as EoL will be annouced soon
-     /*
-    'Firepower 2110': { 
-        StatefulInspectionThroughput: '3 Gbps',  
-        StatefulInspectionThroughputMultiprotocol: '1.5 Gbps',
-        StatefulInspectionThroughputNoIPS: '2.6 Gbps',  
-        StatefulInspectionThroughputIPS: '2.6 Gbps',
-        ConcurrentConnections: '1,000,000', 
-        newConnections: '14,000', 
-        IPSecVPNThroughput: '0.95 Gbps',
-        MaximumVPNPeers: '1,500'
-    },
-    'Firepower 2120': { 
-        StatefulInspectionThroughput: '6 Gbps',  
-        StatefulInspectionThroughputMultiprotocol: '3 Gbps',
-        StatefulInspectionThroughputNoIPS: '3.4 Gbps',  
-        StatefulInspectionThroughputIPS: '3.4 Gbps',
-        ConcurrentConnections: '1,500,000', 
-        newConnections: '18,000', 
-        IPSecVPNThroughput: '1.2 Gbps',
-        MaximumVPNPeers: '3,500'
-    },
-    'Firepower 2130': { 
-        StatefulInspectionThroughput: '10 Gbps',  
-        StatefulInspectionThroughputMultiprotocol: '5 Gbps',
-        StatefulInspectionThroughputNoIPS: '5.4 Gbps',  
-        StatefulInspectionThroughputIPS: '5.4 Gbps',
-        ConcurrentConnections: '2,000,000', 
-        newConnections: '30,000', 
-        IPSecVPNThroughput: '1.9 Gbps',
-        MaximumVPNPeers: '7,500'
-    },
-    'Firepower 2140': { 
-        StatefulInspectionThroughput: '20 Gbps',  
-        StatefulInspectionThroughputMultiprotocol: '10 Gbps',
-        StatefulInspectionThroughputNoIPS: '10.4 Gbps',  
-        StatefulInspectionThroughputIPS: '10.4 Gbps',
-        ConcurrentConnections: '3,000,000', 
-        newConnections: '57,000', 
-        IPSecVPNThroughput: '3.6 Gbps',
-        MaximumVPNPeers: '10,000'
-    },
-    */
     'Secure Firewall 3105': { 
         StatefulInspectionThroughput: '10 Gbps',  
         StatefulInspectionThroughputMultiprotocol: '9 Gbps',
@@ -533,6 +536,12 @@ function applyFilters() {
     const selectedDeviceEoL = deviceSelectEoL.value;
     const selectedDeviceCompare1 = deviceSelectCompare1.value;
     const selectedDeviceCompare2 = deviceSelectCompare2.value;
+
+    function displayEoLDeviceInfo() {
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+        displayEoLDeviceInfo();
+    });
 
     // Get filter values
     const filters = {};
