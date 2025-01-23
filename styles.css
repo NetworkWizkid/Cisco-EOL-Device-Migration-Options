@@ -203,3 +203,62 @@ main > section { /* Target direct child sections within <main> */
     outline: 2px solid #007bff; /* Blue outline on focus */
     outline-offset: 2px; /* Slight offset for better visibility */
 }
+
+/* Style the Export to PDF button */
+#exportToPdfOption1, #exportToPdfOption2, #exportToPdfOption3 {
+    background-color: #007bff; /* Primary blue color */
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 8px 4px; /* Adjusted spacing for better layout */
+    cursor: pointer;
+    border-radius: 6px; /* Slightly rounded corners */
+    transition: background-color 0.3s, transform 0.2s; /* Added transition for hover effect */
+    font-family: 'Arial', sans-serif; /* Consistent font style */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+#exportToPdfOption1, #exportToPdfOption2, #exportToPdfOption3 {
+    background-color: #0056b3; /* Slightly darker blue on hover */
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+#exportToPdfOption1, #exportToPdfOption2, #exportToPdfOption3 {
+    background-color: #003f7f; /* Even darker blue when active */
+    transform: scale(0.98); /* Slightly pressed-in effect */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Reduced shadow for active state */
+}
+
+/* Ensure the button looks good on smaller screens */
+@media (max-width: 600px) {
+    #exportToPdfOption1, #exportToPdfOption2, #exportToPdfOption3 {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
+
+footer {
+    background-color: #f4f4f4;
+    color: #333;
+    text-align: center;
+    padding: 20px 10px;
+    border-top: 1px solid #ddd;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px;
+}
+
+    footer a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+

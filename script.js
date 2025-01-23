@@ -9,6 +9,10 @@ const devices = {
         newConnections: '5,000',
         IPSecVPNThroughput: '0.1 Gbps',
         MaximumVPNPeers: '50',
+        Interfaces: '8',
+        FormFactor: 'Desktop',
+        NumberOfPowerSupplies: '1',
+        Storage: '50 GB',
         alternatives: ['Secure Firewall 1010']
     },
     'ASA 5508': {
@@ -20,6 +24,10 @@ const devices = {
         newConnections: '10,000',
         IPSecVPNThroughput: '0.175 Gbps',
         MaximumVPNPeers: '100',
+        Interfaces: '8',
+        FormFactor: '1RU',
+        NumberOfPowerSupplies: '1',
+        Storage: '80 GB',
         alternatives: ['Secure Firewall 1010', 'Secure Firewall 1120']
     },
     'ASA 5516': {
@@ -31,6 +39,10 @@ const devices = {
         newConnections: '20,000',
         IPSecVPNThroughput: '0.25 Gbps',
         MaximumVPNPeers: '300',
+        Interfaces: '8',
+        FormFactor: '1RU',
+        NumberOfPowerSupplies: '1',
+        Storage: '100 GB',
         alternatives: ['Secure Firewall 1120', 'Secure Firewall 1140']
     },
     'ASA 5525': {
@@ -42,6 +54,10 @@ const devices = {
         newConnections: '20,000',
         IPSecVPNThroughput: '0.3 Gbps',
         MaximumVPNPeers: '300',
+        Interfaces: '8',
+        FormFactor: '1RU',
+        NumberOfPowerSupplies: '1',
+        Storage: '120 GB',
         alternatives: ['Secure Firewall 1140', 'Secure Firewall 1150']
     },
     'ASA 5545': {
@@ -53,6 +69,10 @@ const devices = {
         newConnections: '30,000',
         IPSecVPNThroughput: '0.4 Gbps',
         MaximumVPNPeers: '400',
+        Interfaces: '8',
+        FormFactor: '1RU',
+        NumberOfPowerSupplies: '2',
+        Storage: '120 GB',
         alternatives: ['Secure Firewall 1140', 'Secure Firewall 3110']
     },
     'ASA 5555': {
@@ -64,6 +84,10 @@ const devices = {
         newConnections: '50,000',
         IPSecVPNThroughput: '0.7 Gbps',
         MaximumVPNPeers: '700',
+        Interfaces: '8',
+        FormFactor: '1RU',
+        NumberOfPowerSupplies: '2',
+        Storage: '120 GB',
         alternatives: ['Secure Firewall 1150', 'Secure Firewall 3110']
     },
     // 5YR License EOL 27th May 2025. 1 & 3 Year Licenses still available
@@ -76,6 +100,10 @@ const devices = {
         newConnections: '14,000',
         IPSecVPNThroughput: '0.95 Gbps',
         MaximumVPNPeers: '1,500',
+        Interfaces: '16',
+        FormFactor: '1RU',
+        NumberOfPowerSupplies: '1',
+        Storage: '100 GB',
         alternatives: ['Secure Firewall 3105'],
     },
     // 5YR License EOL 27th May 2025. 1 & 3 Year Licenses still available
@@ -88,6 +116,10 @@ const devices = {
         newConnections: '18,000',
         IPSecVPNThroughput: '1.2 Gbps',
         MaximumVPNPeers: '3,500',
+        Interfaces: '16',
+        FormFactor: '1RU',
+        NumberOfPowerSupplies: '1',
+        Storage: '100 GB',
         alternatives: ['Secure Firewall 3110', 'Secure Firewall 3120']
     },
     // 5YR License EOL 27th May 2025. 1 & 3 Year Licenses still available
@@ -100,6 +132,10 @@ const devices = {
         newConnections: '30,000',
         IPSecVPNThroughput: '1.9 Gbps',
         MaximumVPNPeers: '7,500',
+        Interfaces: '24',
+        FormFactor: '1RU',
+        NumberOfPowerSupplies: '2',
+        Storage: '200 GB',
         alternatives: ['Secure Firewall 3120', 'Secure Firewall 3130']
     },
     // 5YR License EOL 27th May 2025. 1 & 3 Year Licenses still available
@@ -112,6 +148,10 @@ const devices = {
         newConnections: '57,000',
         IPSecVPNThroughput: '3.6 Gbps',
         MaximumVPNPeers: '10,000',
+        Interfaces: '24',
+        FormFactor: '1RU',
+        NumberOfPowerSupplies: '2',
+        Storage: '200 GB',
         alternatives: ['Secure Firewall 3120', 'Secure Firewall 3130']
     },
     // 1YR licenses are still an option
@@ -124,6 +164,10 @@ const devices = {
         newConnections: '68,000', 
         IPSecVPNThroughput: '6 Gbps',
         MaximumVPNPeers: '10,000',
+        Interfaces: '24',
+        FormFactor: '1RU',
+        NumberOfPowerSupplies: '2',
+        Storage: '200 GB',
         alternatives: ['Secure Firewall 3110', 'Secure Firewall 3140']
     },
     'Firepower 4120': { 
@@ -135,6 +179,10 @@ const devices = {
         newConnections: '120,000', 
         IPSecVPNThroughput: '10 Gbps',
         MaximumVPNPeers: '15,000',
+        Interfaces: '24',
+        FormFactor: '1RU',
+        NumberOfPowerSupplies: '2',
+        Storage: '200 GB',
         alternatives: ['Secure Firewall 3140', 'Secure Firewall 4215']
     },
     'Firepower 4140': { 
@@ -146,6 +194,10 @@ const devices = {
         newConnections: '160,000', 
         IPSecVPNThroughput: '13 Gbps',
         MaximumVPNPeers: '20,000',
+        Interfaces: '24',
+        FormFactor: '1RU',
+        NumberOfPowerSupplies: '2',
+        Storage: '400 GB',
         alternatives: ['Secure Firewall 3140', 'Secure Firewall 4225']
     },
     'Firepower 4150': { 
@@ -157,6 +209,10 @@ const devices = {
         newConnections: '200,000', 
         IPSecVPNThroughput: '14 Gbps',
         MaximumVPNPeers: '20,000',
+        Interfaces: '24',
+        FormFactor: '1RU',
+        NumberOfPowerSupplies: '2',
+        Storage: '400 GB',
         alternatives: ['Secure Firewall 3140', 'Secure Firewall 4225']
     },
      'Firepower 9300 SM-24': { 
@@ -168,6 +224,10 @@ const devices = {
         newConnections: '120,000', 
         IPSecVPNThroughput: '13.5 Gbps',
         MaximumVPNPeers: '20,000',
+        Interfaces: '24',
+        FormFactor: '3RU',
+        NumberOfPowerSupplies: '2',
+        Storage: '1200 GB',
         alternatives: ['Secure Firewall 4215', 'Secure Firewall 4225']
     },
      'Firepower 9300 SM-36': { 
@@ -179,6 +239,10 @@ const devices = {
         newConnections: '160,000', 
         IPSecVPNThroughput: '16 Gbps',
         MaximumVPNPeers: '20,000',
+        Interfaces: '24',
+        FormFactor: '3RU',
+        NumberOfPowerSupplies: '2',
+        Storage: '1200 GB',
         alternatives: ['Secure Firewall 4215', 'Secure Firewall 4225']
     },
      'Firepower 9300 SM-44': { 
@@ -190,6 +254,10 @@ const devices = {
         newConnections: '300,000', 
         IPSecVPNThroughput: '17 Gbps',
         MaximumVPNPeers: '20,000',
+        Interfaces: '24',
+        FormFactor: '3RU',
+        NumberOfPowerSupplies: '2',
+        Storage: '1200 GB',
         alternatives: ['Secure Firewall 4215', 'Secure Firewall 4225']
     },
 };
@@ -203,7 +271,11 @@ const newdevices = {
         ConcurrentConnections: '100,000', 
         newConnections: '6,000', 
         IPSecVPNThroughput: '0.4 Gbps',
-        MaximumVPNPeers: '75'
+        MaximumVPNPeers: '75',
+        Interfaces: '8',
+        FormFactor: 'Desktop or Wall Mountable',
+        NumberOfPowerSupplies: '1',
+        Storage: '200 GB'
     },
      'Secure Firewall 1010E': { 
         StatefulInspectionThroughput: '2 Gbps',  
@@ -213,7 +285,11 @@ const newdevices = {
         ConcurrentConnections: '100,000', 
         newConnections: '6,000', 
         IPSecVPNThroughput: '0.4 Gbps',
-        MaximumVPNPeers: '75'
+        MaximumVPNPeers: '75',
+        Interfaces: '8',
+        FormFactor: 'Desktop or Wall Mountable',
+        NumberOfPowerSupplies: '1',
+        Storage: '200 GB'
     },
     'Secure Firewall 1120': { 
         StatefulInspectionThroughput: '4.5 Gbps',  
@@ -223,7 +299,11 @@ const newdevices = {
         ConcurrentConnections: '200,000', 
         newConnections: '15,000', 
         IPSecVPNThroughput: '1.2 Gbps',
-        MaximumVPNPeers: '150'
+        MaximumVPNPeers: '150',
+        Interfaces: '12',
+        FormFactor: '1RU',
+        NumberOfPowerSupplies: '1',
+        Storage: '200 GB'
     },
     'Secure Firewall 1140': { 
         StatefulInspectionThroughput: '6 Gbps',  
@@ -233,7 +313,11 @@ const newdevices = {
         ConcurrentConnections: '400,000', 
         newConnections: '22,000', 
         IPSecVPNThroughput: '1.4 Gbps',
-        MaximumVPNPeers: '400'
+        MaximumVPNPeers: '400',
+        Interfaces: '12',
+        FormFactor: '1RU',
+        NumberOfPowerSupplies: '1',
+        Storage: '200 GB'
     },
     'Secure Firewall 1150': { 
         StatefulInspectionThroughput: '7.5 Gbps',  
@@ -243,7 +327,11 @@ const newdevices = {
         ConcurrentConnections: '600,000', 
         newConnections: '28,000', 
         IPSecVPNThroughput: '2.4 Gbps',
-        MaximumVPNPeers: '800'
+        MaximumVPNPeers: '800',
+        Interfaces: '12',
+        FormFactor: '1RU',
+        NumberOfPowerSupplies: '1',
+        Storage: '200 GB'
     },
      'Secure Firewall 1210': { 
         StatefulInspectionThroughput: '6.5 Gbps',  
@@ -253,7 +341,11 @@ const newdevices = {
         ConcurrentConnections: '200,000', 
         newConnections: '35,000', 
         IPSecVPNThroughput: '5 Gbps',
-        MaximumVPNPeers: '200'
+        MaximumVPNPeers: '200',
+        Interfaces: '8',
+        FormFactor: 'Desktop or Rack Mount',
+        NumberOfPowerSupplies: '1',
+        Storage: '480 GB'
     },
      'Secure Firewall 1220': { 
         StatefulInspectionThroughput: '15 Gbps',  
@@ -263,7 +355,11 @@ const newdevices = {
         ConcurrentConnections: '300,000', 
         newConnections: '50,000', 
         IPSecVPNThroughput: '10 Gbps',
-        MaximumVPNPeers: '300'
+        MaximumVPNPeers: '300',
+        Interfaces: '10',
+        FormFactor: 'Desktop or Rack Mount',
+        NumberOfPowerSupplies: '1',
+        Storage: '480 GB'
     },
     'Secure Firewall 3105': { 
         StatefulInspectionThroughput: '10 Gbps',  
@@ -273,7 +369,11 @@ const newdevices = {
         ConcurrentConnections: '1,500,000', 
         newConnections: '90,000', 
         IPSecVPNThroughput: '5.5 Gbps',
-        MaximumVPNPeers: '2,000'
+        MaximumVPNPeers: '2,000',
+        Interfaces: '24',
+        FormFactor: '1RU',
+        NumberOfPowerSupplies: '2',
+        Storage: '900 GB'
     },
     'Secure Firewall 3110': { 
         StatefulInspectionThroughput: '18 Gbps',  
@@ -283,7 +383,11 @@ const newdevices = {
         ConcurrentConnections: '2,000,000', 
         newConnections: '130,000', 
         IPSecVPNThroughput: '8 Gbps',
-        MaximumVPNPeers: '3,000'
+        MaximumVPNPeers: '3,000',
+        Interfaces: '24',
+        FormFactor: '1RU',
+        NumberOfPowerSupplies: '2',
+        Storage: '900 GB'
     },
     'Secure Firewall 3120': { 
         StatefulInspectionThroughput: '22 Gbps',  
@@ -293,7 +397,11 @@ const newdevices = {
         ConcurrentConnections: '4,000,000', 
         newConnections: '170,000', 
         IPSecVPNThroughput: '10 Gbps',
-        MaximumVPNPeers: '7,000'
+        MaximumVPNPeers: '7,000',
+        Interfaces: '24',
+        FormFactor: '1RU',
+        NumberOfPowerSupplies: '2',
+        Storage: '900 GB'
     },
     'Secure Firewall 3130': { 
         StatefulInspectionThroughput: '42 Gbps',  
@@ -303,7 +411,11 @@ const newdevices = {
         ConcurrentConnections: '6,000,000', 
         newConnections: '240,000', 
         IPSecVPNThroughput: '17.8 Gbps',
-        MaximumVPNPeers: '15,000'
+        MaximumVPNPeers: '15,000',
+        Interfaces: '24',
+        FormFactor: '1RU',
+        NumberOfPowerSupplies: '2',
+        Storage: '900 GB'
     },
     'Secure Firewall 3140': { 
         StatefulInspectionThroughput: '49 Gbps',  
@@ -313,7 +425,11 @@ const newdevices = {
         ConcurrentConnections: '10,000,000', 
         newConnections: '300,000', 
         IPSecVPNThroughput: '22.4 Gbps',
-        MaximumVPNPeers: '20,000'
+        MaximumVPNPeers: '20,000',
+        Interfaces: '24',
+        FormFactor: '1RU',
+        NumberOfPowerSupplies: '2',
+        Storage: '900 GB'
     },
      'Secure Firewall 4215': { 
         StatefulInspectionThroughput: '90 Gbps',  
@@ -323,7 +439,11 @@ const newdevices = {
         ConcurrentConnections: '15,000,000', 
         newConnections: '350,000', 
         IPSecVPNThroughput: '45 Gbps',
-        MaximumVPNPeers: '20,000'
+        MaximumVPNPeers: '20,000',
+        Interfaces: '24',
+        FormFactor: '1RU',
+        NumberOfPowerSupplies: '2',
+        Storage: '3600 GB'
     },
      'Secure Firewall 4225': { 
         StatefulInspectionThroughput: '95 Gbps',  
@@ -333,17 +453,25 @@ const newdevices = {
         ConcurrentConnections: '30,000,000', 
         newConnections: '600,000', 
         IPSecVPNThroughput: '80 Gbps',
-        MaximumVPNPeers: '25,000'
+        MaximumVPNPeers: '25,000',
+        Interfaces: '24',
+        FormFactor: '1RU',
+        NumberOfPowerSupplies: '2',
+        Storage: '3600 GB'
     },
      'Secure Firewall 4245': { 
-                StatefulInspectionThroughput: '180 Gbps',  
+        StatefulInspectionThroughput: '180 Gbps',  
         StatefulInspectionThroughputMultiprotocol: '100 Gbps',
         StatefulInspectionThroughputNoIPS: '140 Gbps',  
         StatefulInspectionThroughputIPS: '140 Gbps',
         ConcurrentConnections: '60,000,000', 
         newConnections: '800,000', 
         IPSecVPNThroughput: '140 Gbps',
-        MaximumVPNPeers: '30,000'
+        MaximumVPNPeers: '30,000',
+        Interfaces: '24',
+        FormFactor: '1RU',
+        NumberOfPowerSupplies: '2',
+        Storage: '3600 GB'
     },
       'Firepower 9300 SM-40': { 
         StatefulInspectionThroughput: '80 Gbps',  
@@ -353,7 +481,11 @@ const newdevices = {
         ConcurrentConnections: '35,000,000', 
         newConnections: '380,000', 
         IPSecVPNThroughput: '27 Gbps',
-        MaximumVPNPeers: '20,000'
+        MaximumVPNPeers: '20,000',
+        Interfaces: '24',
+        FormFactor: '3RU',
+        NumberOfPowerSupplies: '2',
+        Storage: '1600 GB'
     },
      'Firepower 9300 SM-48': { 
         StatefulInspectionThroughput: '80 Gbps',  
@@ -363,7 +495,11 @@ const newdevices = {
         ConcurrentConnections: '35,000,000', 
         newConnections: '450,000', 
         IPSecVPNThroughput: '33 Gbps',
-        MaximumVPNPeers: '20,000'
+        MaximumVPNPeers: '20,000',
+        Interfaces: '24',
+        FormFactor: '3RU',
+        NumberOfPowerSupplies: '2',
+        Storage: '1600 GB'
     },
      'Firepower 9300 SM-56': { 
         StatefulInspectionThroughput: '80 Gbps',  
@@ -373,7 +509,11 @@ const newdevices = {
         ConcurrentConnections: '35,000,000', 
         newConnections: '490,000', 
         IPSecVPNThroughput: '36 Gbps',
-        MaximumVPNPeers: '20,000'
+        MaximumVPNPeers: '20,000',
+        Interfaces: '24',
+        FormFactor: '3RU',
+        NumberOfPowerSupplies: '2',
+        Storage: '1600 GB'
     },
      'Firepower 9300 3 x SM-56': { 
         StatefulInspectionThroughput: '235 Gbps',  
@@ -383,7 +523,11 @@ const newdevices = {
         ConcurrentConnections: '60,000,000', 
         newConnections: '1,100,000', 
         IPSecVPNThroughput: '110 Gbps',
-        MaximumVPNPeers: '60,000'
+        MaximumVPNPeers: '60,000',
+        Interfaces: '24',
+        FormFactor: '3RU',
+        NumberOfPowerSupplies: '2',
+        Storage: '4800 GB'
     },
 };
 
@@ -396,7 +540,11 @@ const metrics = [
   { name: "FTD Concurrent Firewall Connections", key: "ConcurrentConnections" },
   { name: "FTD New Connections per Second", key: "newConnections" },
   { name: "IPSec VPN Throughput", key: "IPSecVPNThroughput" },
-  { name: "Maximum VPN Peers", key: "MaximumVPNPeers" }
+  { name: "Maximum VPN Peers", key: "MaximumVPNPeers" },
+  { name: "Maximum Number of Interfaces", key: "Interfaces" },
+  { name: "Form Factor", key: "FormFactor" },
+  { name: "Maximum Number of Power Supplies", key: "NumberOfPowerSupplies" },
+  { name: "Factory Storage", key: "Storage" }
 ];
 
 // Get references to HTML elements
@@ -441,7 +589,7 @@ Object.keys(newdevices).forEach(device => {
     deviceSelectCompare2.appendChild(option2);
 });
 
-// Helper functions 
+// Helper function to extract numeric value and its unit
 function extractNumberAndUnit(value) {
     if (typeof value !== 'string') return { number: null, unit: 'No Data Available' };
     const match = value.match(/([\d,.]+)\s*(.*)/);
@@ -451,25 +599,46 @@ function extractNumberAndUnit(value) {
     return { number: null, unit: 'No Data Available' };
 }
 
+// Function to format the number and unit for displaying
 function formatNumber(value) {
     if (!value) return 'No Data Available';
+
+    // Check if the value is numeric
     const { number, unit } = extractNumberAndUnit(value);
-    if (number === null) return 'No Data Available';
+
+    // If it's not numeric, return the exact string entered
+    if (number === null) {
+        return value;  // Return the exact value as entered (e.g., "1RU" or any text)
+    }
+
+    // Otherwise, format the numeric value as usual
     return number.toLocaleString() + (unit ? ` ${unit}` : '');
 }
 
+
+// Modified calculateDifference function to handle non-numeric form factor text
 function calculateDifference(eolValue, altValue) {
     const eolData = extractNumberAndUnit(eolValue);
     const altData = extractNumberAndUnit(altValue);
 
-    if (eolData.number === null || altData.number === null) {
-        return { difference: 'No Data Available', positive: null };
+    // Check if both values are non-numeric
+    if (eolData.number === null && altData.number === null) {
+        // If both values are non-numeric, display the text and mark the difference as "Not Applicable"
+        return { difference: 'Not Applicable', positive: null };
     }
 
-    const diff = altData.number - eolData.number;
-    const sign = diff >= 0 ? '+' : '-';
-    return { difference: `${sign}${Math.abs(diff).toLocaleString()} ${altData.unit}`, positive: diff >= 0 };
+    // If at least one value is numeric, calculate the difference
+    if (eolData.number !== null && altData.number !== null) {
+        const diff = altData.number - eolData.number;
+        const sign = diff >= 0 ? '+' : '-';
+        return { difference: `${sign}${Math.abs(diff).toLocaleString()} ${altData.unit}`, positive: diff >= 0 };
+    }
+
+    // In case one value is numeric and the other is non-numeric
+    return { difference: 'Not Applicable', positive: null };
 }
+
+
 
 // Add filter inputs for each metric
 const filterForm = document.createElement('form');
@@ -481,7 +650,8 @@ const metricsWithGbps = [
     "ASA Stateful Inspection Multiprotocol Throughput",
     "FTD Throughput with FW and AVC",
     "FTD Throughput with FW, AVC and IPS",
-    "IPSec VPN Throughput"
+    "IPSec VPN Throughput",
+    "Factory Storage"
 ];
 
 metrics.forEach(metric => {
@@ -520,6 +690,18 @@ metrics.forEach(metric => {
             break;
         case "Maximum VPN Peers":
             filterInput.placeholder = "Example: 50";
+            break;
+        case "Interfaces":
+            filterInput.placeholder = "Example: 4";
+            break;
+        case "Form Factor":
+            filterInput.placeholder = "Example: 1 = 1RU";
+            break;
+        case "Number of Power Supplies":
+            filterInput.placeholder = "Example: 1";
+            break;
+        case "Storage":
+            filterInput.placeholder = "Example: 500 GB";
             break;
         default:
             filterInput.placeholder = "Minimum value";
@@ -786,6 +968,54 @@ function clearFilters() {
     filteredNewDevicesResults.innerHTML = "";
    
 }
+
+
+// Function to export specific results to PDF
+async function exportResultsToPDF(resultsContainerId) {
+    const resultsContainer = document.getElementById(resultsContainerId);
+
+    // Ensure the container is not empty
+    if (!resultsContainer || resultsContainer.innerHTML.trim() === "") {
+        alert("No results available to export!");
+        return;
+    }
+
+    try {
+        const { jsPDF } = window.jspdf;
+
+        // Create a new jsPDF instance
+        const doc = new jsPDF();
+
+        // Use html2canvas to capture the content
+        const canvas = await html2canvas(resultsContainer);
+        const imgData = canvas.toDataURL('image/png');
+
+        // Add image to the PDF
+        const imgWidth = 190; // Adjust width to fit the page
+        const imgHeight = (canvas.height * imgWidth) / canvas.width;
+        doc.addImage(imgData, 'PNG', 10, 10, imgWidth, imgHeight);
+
+        // Save the PDF
+        doc.save(`${resultsContainerId}_Results.pdf`);
+    } catch (error) {
+        console.error("Error exporting to PDF:", error);
+        alert("Failed to export results. Please try again.");
+    }
+}
+
+// Attach event listeners to each export button
+document.getElementById('exportToPdfOption1').addEventListener('click', () => {
+    exportResultsToPDF('comparisonResults');
+});
+
+document.getElementById('exportToPdfOption2').addEventListener('click', () => {
+    exportResultsToPDF('threeDeviceComparisonResults');
+});
+
+document.getElementById('exportToPdfOption3').addEventListener('click', () => {
+    exportResultsToPDF('filteredNewDevicesResults');
+});
+
 
 // Attach event listeners
 filterButton.addEventListener('click', applyFilters);

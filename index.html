@@ -6,6 +6,8 @@
     <title>Cisco Firewall EoL Device Migration Tool</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="https://networkwizkid.com/wp-content/uploads/2024/09/new-logo-final-v3-full-e1677752694770.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js"></script>
 </head>
 <body>
 
@@ -22,12 +24,12 @@
                 <br /><br />
                 The alternative Cisco firewalls suggested in Option 1 have been chosen based on their close match to the End of Life (EoL) device. In some cases, they are selected for being the best option when all metrics are equal to or better than the EoL device.
                 <br /><br />
-                      <b>
-                          It's crucial to remember that specific customer requirements might make the recommended alternatives presented in this tool unsuitable.
+                <b>
+                    It's crucial to remember that specific customer requirements might make the recommended alternatives presented in this tool unsuitable.
 
-                          Actual performance may vary based on several factors not considered when developing this tool. Refer to Cisco device data sheets for more information on device metrics.
-                          Always consult your Cisco representative if you have specific requirements that need to be met.
-                      </b>
+                    Actual performance may vary based on several factors not considered when developing this tool. Refer to Cisco device data sheets for more information on device metrics.
+                    Always consult your Cisco representative if you have specific requirements that need to be met.
+                </b>
             </p>
             <p>
                 <b>
@@ -47,7 +49,7 @@
                 <p>Select an EoL firewall device to see recommended replacements based on key capabilities.</p>
             </div>
             <form id="deviceForm">
-               
+
                 <select id="deviceSelect" aria-describedby="deviceSelectLabel">
                     <option value="" selected disabled>Select an EoL Device</option>
                 </select>
@@ -55,32 +57,34 @@
             </form>
             <div id="threeDeviceComparison">
                 <button type="button" id="clearButton" class="clear-selection-button">Clear Selection</button>
-                </div>
-                <div id="comparisonResults" aria-live="polite">
-                </div>
-</section>
+                <button id="exportToPdfOption1">Export Results to PDF</button>
+            </div>
+            <div id="comparisonResults" aria-live="polite">
+            </div>
+        </section>
 
         <section>
             <h2><u>Option 2: Compare Multiple Cisco Firewalls</u></h2>
-            
+
             <div id="threeDeviceComparison">
                 <p>Select an EoL firewall device and up to two new firewalls to compare their metrics side-by-side.</p>
-               
+
                 <select id="deviceSelectEoL" aria-describedby="deviceSelectEoLLabel">
                     <option value="" selected disabled> Select the EoL Device</option>
                 </select>
 
-                
+
                 <select id="deviceSelectCompare1" aria-describedby="deviceSelectCompare1Label">
                     <option value="" selected disabled>Select the First New Firewall</option>
                 </select>
 
-               
+
                 <select id="deviceSelectCompare2" aria-describedby="deviceSelectCompare2Label">
                     <option value="" selected disabled>Select the Second New Firewall (Optional)</option>
                 </select>
 
                 <button type="button" id="clearButtonOptionTwo" class="clear-selection-button">Clear Selection</button>
+                <button id="exportToPdfOption2">Export Results to PDF</button>
             </div>
 
             <div id="threeDeviceComparisonResults" aria-live="polite">
@@ -89,7 +93,7 @@
 
         <section>
             <h2><u>Option 3: Filter for New Cisco Firewalls Based on Key Metrics</u></h2>
-            
+
             <form id="filterForm">
                 <div id="filterOptions">
                     <p>Set filter criteria to find a new Cisco secure firewall that meets your specific requirements based on several key metrics.</p>
@@ -98,6 +102,7 @@
                 <div class="button-container">
                     <button type="button" id="filterButton" class="clear-selection-button">Apply Filters</button>
                     <button type="button" id="clearFiltersButton" class="clear-selection-button">Clear Filters</button>
+                    <button id="exportToPdfOption3">Export Results to PDF</button>
                 </div>
             </form>
 
@@ -114,3 +119,18 @@
     <script src="script.js"></script>
 </body>
 </html>
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2025 Network Wizkid. All rights reserved.</p>
+        <p>
+            Visit us at
+            <a href="https://www.networkwizkid.com" target="_blank">Network Wizkid</a>
+        </p>
+        <p>
+            Follow us on
+            <a href="https://x.com/iwiizkiid" target="_blank">X</a> |
+            <a href="https://www.linkedin.com/company/network-wizkid" target="_blank">LinkedIn</a> |
+            <a href="https://www.youtube.com/@networkwizkid" target="_blank">YouTube</a>
+        </p>
+    </div>
+</footer>
