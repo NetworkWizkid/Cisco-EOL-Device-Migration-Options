@@ -970,8 +970,14 @@ function clearFilters() {
 }
 
 
+let isExporting = false; // Flag to track if the PDF is being exported
+
 // Function to export results to PDF using html2pdf.js
 function exportResultsToPDF(resultsContainerId) {
+    if (isExporting) {
+        return; // Prevent multiple exports
+    }
+
     const resultsContainer = document.getElementById(resultsContainerId);
 
     // Ensure the container is not empty
@@ -981,12 +987,15 @@ function exportResultsToPDF(resultsContainerId) {
     }
 
     try {
+        isExporting = true; // Set the flag to true to indicate export is in progress
+        showPleaseWaitPrompt(); // Show the "Please Wait" prompt
+
         // Add the website footer to the container (if not already included)
         addFooterToContainer(resultsContainer);
 
         // Options for html2pdf
         const options = {
-            margin: [20, 10, 40, 10], // Top, Right, Bottom, Left margins with extra space at the bottom
+            margin: [40, 10, 40, 10], // Top, Right, Bottom, Left margins with extra space at the top and bottom
             filename: `${resultsContainerId}_Results.pdf`,
             image: { type: 'png', quality: 1 },
             html2canvas: { dpi: 192, scale: 4 },
@@ -1004,10 +1013,14 @@ function exportResultsToPDF(resultsContainerId) {
             }
 
             pdf.save(`${resultsContainerId}_Results.pdf`);
+            hidePleaseWaitPrompt(); // Hide the "Please Wait" prompt
+            isExporting = false; // Reset the flag after export is complete
         });
     } catch (error) {
         console.error("Error exporting to PDF:", error);
         alert("Failed to export results. Please try again.");
+        hidePleaseWaitPrompt(); // Hide the "Please Wait" prompt in case of error
+        isExporting = false; // Reset the flag in case of error
     }
 }
 
@@ -1029,6 +1042,44 @@ function addFooterToContainer(container) {
         container.appendChild(footer); // Add footer at the bottom of the content
     }
 }
+
+// Helper function to show the "Please Wait" prompt
+function showPleaseWaitPrompt() {
+    const prompt = document.createElement('div');
+    prompt.id = 'pleaseWaitPrompt';
+    prompt.style.position = 'fixed';
+    prompt.style.top = '50%';
+    prompt.style.left = '50%';
+    prompt.style.transform = 'translate(-50%, -50%)';
+    prompt.style.padding = '20px';
+    prompt.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+    prompt.style.color = 'white';
+    prompt.style.fontSize = '18px';
+    prompt.style.zIndex = '1000';
+    prompt.innerText = 'Please Wait...';
+    document.body.appendChild(prompt);
+}
+
+// Helper function to hide the "Please Wait" prompt
+function hidePleaseWaitPrompt() {
+    const prompt = document.getElementById('pleaseWaitPrompt');
+    if (prompt) {
+        document.body.removeChild(prompt);
+    }
+}
+
+// Attach event listeners to each export button
+document.getElementById('exportToPdfOption1').addEventListener('click', () => {
+    exportResultsToPDF('comparisonResults');
+});
+
+document.getElementById('exportToPdfOption2').addEventListener('click', () => {
+    exportResultsToPDF('threeDeviceComparisonResults');
+});
+
+document.getElementById('exportToPdfOption3').addEventListener('click', () => {
+    exportResultsToPDF('filteredNewDevicesResults');
+});
 
 // Attach event listeners to each export button
 document.getElementById('exportToPdfOption1').addEventListener('click', () => {
