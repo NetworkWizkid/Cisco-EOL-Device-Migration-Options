@@ -1015,6 +1015,9 @@ function exportResultsToPDF(resultsContainerId) {
             pdf.save(`${resultsContainerId}_Results.pdf`);
             hidePleaseWaitPrompt(); // Hide the "Please Wait" prompt
             isExporting = false; // Reset the flag after export is complete
+        }).then(() => {
+            // Clear the filters after the PDF has been downloaded
+            clearFilters();
         });
     } catch (error) {
         console.error("Error exporting to PDF:", error);
@@ -1080,6 +1083,7 @@ document.getElementById('exportToPdfOption2').addEventListener('click', () => {
 document.getElementById('exportToPdfOption3').addEventListener('click', () => {
     exportResultsToPDF('filteredNewDevicesResults');
 });
+
 
 
 
