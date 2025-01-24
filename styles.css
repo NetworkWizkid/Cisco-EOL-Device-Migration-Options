@@ -1,7 +1,6 @@
 /* styles.css */
 
 body {
-
     font-family: 'Helvetica Neue', Arial, sans-serif;
     margin: 20px;
     background-color: #f4f4f4;
@@ -61,8 +60,8 @@ h1 {
         border-radius: 5px;
         box-sizing: border-box;
         margin-bottom: 20px;
-
     }
+
     /*To center align option one box*/
     #deviceForm select, #threeDeviceComparison select {
         text-align: center;
@@ -177,32 +176,32 @@ img[alt="Network Wizkid logo"] {
 /* Form Spacing */
 
 main > section { /* Target direct child sections within <main> */
-  margin-bottom: 30px;
-  padding: 20px;
-  border: 1px solid #e0e0e0; 
-  border-radius: 5px; 
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Remove the styles from #deviceForm, #threeDeviceComparison, #filterForm */
 #deviceForm, #threeDeviceComparison, #filterForm {
-  margin-bottom: 0; /* Reset margin-bottom if it was previously set */
-  padding: 0; 
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
+    margin-bottom: 0; /* Reset margin-bottom if it was previously set */
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
 }
-/* Focus States for Interactive Elements */
+    /* Focus States for Interactive Elements */
 
-#deviceSelect:focus,
-#deviceSelectEoL:focus,
-#deviceSelectCompare1:focus,
-#deviceSelectCompare2:focus,
-#filterForm input[type="number"]:focus,
-.clear-selection-button:focus {
-    outline: 2px solid #007bff; /* Blue outline on focus */
-    outline-offset: 2px; /* Slight offset for better visibility */
-}
+    #deviceSelect:focus,
+    #deviceSelectEoL:focus,
+    #deviceSelectCompare1:focus,
+    #deviceSelectCompare2:focus,
+    #filterForm input[type="number"]:focus,
+    .clear-selection-button:focus {
+        outline: 2px solid #007bff; /* Blue outline on focus */
+        outline-offset: 2px; /* Slight offset for better visibility */
+    }
 
 /* Style the Export to PDF button */
 #exportToPdfOption1, #exportToPdfOption2, #exportToPdfOption3 {
@@ -222,15 +221,21 @@ main > section { /* Target direct child sections within <main> */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
-#exportToPdfOption1, #exportToPdfOption2, #exportToPdfOption3 {
-    background-color: #0056b3; /* Slightly darker blue on hover */
-    transform: scale(1.05); /* Slight zoom effect on hover */
-}
+    #exportToPdfOption1:hover, #exportToPdfOption2:hover, #exportToPdfOption3:hover {
+        background-color: #0056b3; /* Slightly darker blue on hover */
+        transform: scale(1.05); /* Slight zoom effect on hover */
+    }
 
-#exportToPdfOption1, #exportToPdfOption2, #exportToPdfOption3 {
-    background-color: #003f7f; /* Even darker blue when active */
-    transform: scale(0.98); /* Slightly pressed-in effect */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Reduced shadow for active state */
+    #exportToPdfOption1:active, #exportToPdfOption2:active, #exportToPdfOption3:active {
+        background-color: #003f7f; /* Even darker blue when active */
+        transform: scale(0.98); /* Slightly pressed-in effect */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Reduced shadow for active state */
+    }
+
+/* Center the Export to PDF button for Option 3 */
+#exportToPdfOption3 {
+    display: block;
+    margin: 0 auto;
 }
 
 /* Ensure the button looks good on smaller screens */
@@ -261,6 +266,7 @@ footer {
         footer a:hover {
             text-decoration: underline;
         }
+
 table {
     page-break-inside: avoid;
 }
@@ -277,5 +283,3 @@ thead {
 tfoot {
     display: table-footer-group;
 }
-
-
