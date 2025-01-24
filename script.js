@@ -1015,6 +1015,9 @@ function exportResultsToPDF(resultsContainerId) {
             pdf.save(`${resultsContainerId}_Results.pdf`);
             hidePleaseWaitPrompt(); // Hide the "Please Wait" prompt
             isExporting = false; // Reset the flag after export is complete
+        }).then(() => {
+            // Clear the filters after the PDF has been downloaded
+            clearFilters();
         });
     } catch (error) {
         console.error("Error exporting to PDF:", error);
@@ -1070,16 +1073,17 @@ function hidePleaseWaitPrompt() {
 
 // Attach event listeners to each export button
 document.getElementById('exportToPdfOption1').addEventListener('click', () => {
-    exportResultsToPDF('comparisonResults');
+    exportResultsToPDF('Option1-Results-Firewall-EOL-Tool');
 });
 
 document.getElementById('exportToPdfOption2').addEventListener('click', () => {
-    exportResultsToPDF('threeDeviceComparisonResults');
+    exportResultsToPDF('Option2-Results-Firewall-EOL-Tool');
 });
 
 document.getElementById('exportToPdfOption3').addEventListener('click', () => {
     exportResultsToPDF('filteredNewDevicesResults');
 });
+
 
 
 
