@@ -261,4 +261,21 @@ footer {
         footer a:hover {
             text-decoration: underline;
         }
+table {
+    page-break-inside: avoid;
+}
+
+tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+}
+
+thead {
+    display: table-header-group;
+}
+
+tfoot {
+    display: table-footer-group;
+}
+
 

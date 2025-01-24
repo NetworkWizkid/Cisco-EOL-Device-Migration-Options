@@ -970,8 +970,8 @@ function clearFilters() {
 }
 
 
-// Function to export specific results to PDF
-async function exportResultsToPDF(resultsContainerId) {
+// Function to export results to PDF using html2pdf.js
+function exportResultsToPDF(resultsContainerId) {
     const resultsContainer = document.getElementById(resultsContainerId);
 
     // Ensure the container is not empty
@@ -981,25 +981,52 @@ async function exportResultsToPDF(resultsContainerId) {
     }
 
     try {
-        const { jsPDF } = window.jspdf;
+        // Add the website footer to the container (if not already included)
+        addFooterToContainer(resultsContainer);
 
-        // Create a new jsPDF instance
-        const doc = new jsPDF();
+        // Options for html2pdf
+        const options = {
+            margin: [20, 10, 40, 10], // Top, Right, Bottom, Left margins with extra space at the bottom
+            filename: `${resultsContainerId}_Results.pdf`,
+            image: { type: 'png', quality: 1 },
+            html2canvas: { dpi: 192, scale: 4 },
+            jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' }, // Ensure landscape orientation
+            pagebreak: { mode: ['avoid-all', 'css', 'legacy'] } // Avoid page breaks within elements
+        };
 
-        // Use html2canvas to capture the content
-        const canvas = await html2canvas(resultsContainer);
-        const imgData = canvas.toDataURL('image/png');
+        // Use html2pdf to convert the container to PDF and save it
+        html2pdf().from(resultsContainer).set(options).toPdf().get('pdf').then(function (pdf) {
+            const totalPages = pdf.internal.getNumberOfPages();
 
-        // Add image to the PDF
-        const imgWidth = 190; // Adjust width to fit the page
-        const imgHeight = (canvas.height * imgWidth) / canvas.width;
-        doc.addImage(imgData, 'PNG', 10, 10, imgWidth, imgHeight);
+            for (let i = 1; i <= totalPages; i++) {
+                pdf.setPage(i);
+                pdf.addImage('https://networkwizkid.com/wp-content/uploads/2024/09/new-logo-final-v3-full-e1677752694770.png', 'PNG', 10, 10, 50, 20); // Adjust the position and size as needed
+            }
 
-        // Save the PDF
-        doc.save(`${resultsContainerId}_Results.pdf`);
+            pdf.save(`${resultsContainerId}_Results.pdf`);
+        });
     } catch (error) {
         console.error("Error exporting to PDF:", error);
         alert("Failed to export results. Please try again.");
+    }
+}
+
+// Helper function to add footer to the results container
+function addFooterToContainer(container) {
+    // Ensure the footer isn't added multiple times
+    const existingFooter = container.querySelector('.export-footer');
+    if (!existingFooter) {
+        const footer = document.createElement('div');
+        footer.classList.add('export-footer'); // Mark the footer to prevent duplication
+        footer.style.textAlign = 'center';
+        footer.style.fontSize = '12px';
+        footer.style.marginTop = '20px';
+        footer.innerHTML = `
+            <p>Network Wizkid</p>
+            <p>networkwizkid.com</p>
+            <p>${new Date().getFullYear()} All Rights Reserved</p>
+        `;
+        container.appendChild(footer); // Add footer at the bottom of the content
     }
 }
 
@@ -1015,6 +1042,163 @@ document.getElementById('exportToPdfOption2').addEventListener('click', () => {
 document.getElementById('exportToPdfOption3').addEventListener('click', () => {
     exportResultsToPDF('filteredNewDevicesResults');
 });
+
+// Attach event listeners to each export button
+document.getElementById('exportToPdfOption1').addEventListener('click', () => {
+    exportResultsToPDF('comparisonResults');
+});
+
+document.getElementById('exportToPdfOption2').addEventListener('click', () => {
+    exportResultsToPDF('threeDeviceComparisonResults');
+});
+
+document.getElementById('exportToPdfOption3').addEventListener('click', () => {
+    exportResultsToPDF('filteredNewDevicesResults');
+});
+
+// Attach event listeners to each export button
+document.getElementById('exportToPdfOption1').addEventListener('click', () => {
+    exportResultsToPDF('comparisonResults');
+});
+
+document.getElementById('exportToPdfOption2').addEventListener('click', () => {
+    exportResultsToPDF('threeDeviceComparisonResults');
+});
+
+document.getElementById('exportToPdfOption3').addEventListener('click', () => {
+    exportResultsToPDF('filteredNewDevicesResults');
+});
+
+
+// Attach event listeners to each export button
+document.getElementById('exportToPdfOption1').addEventListener('click', () => {
+    exportResultsToPDF('comparisonResults');
+});
+
+document.getElementById('exportToPdfOption2').addEventListener('click', () => {
+    exportResultsToPDF('threeDeviceComparisonResults');
+});
+
+document.getElementById('exportToPdfOption3').addEventListener('click', () => {
+    exportResultsToPDF('filteredNewDevicesResults');
+});
+
+
+
+// Attach event listeners to each export button
+document.getElementById('exportToPdfOption1').addEventListener('click', () => {
+    exportResultsToPDF('comparisonResults');
+});
+
+document.getElementById('exportToPdfOption2').addEventListener('click', () => {
+    exportResultsToPDF('threeDeviceComparisonResults');
+});
+
+document.getElementById('exportToPdfOption3').addEventListener('click', () => {
+    exportResultsToPDF('filteredNewDevicesResults');
+});
+
+
+// Helper function to add footer to the results container
+function addFooterToContainer(container) {
+    // Ensure the footer isn't added multiple times
+    const existingFooter = container.querySelector('.export-footer');
+    if (!existingFooter) {
+        const footer = document.createElement('div');
+        footer.classList.add('export-footer'); // Mark the footer to prevent duplication
+        footer.style.textAlign = 'center';
+        footer.style.fontSize = '12px';
+        footer.style.marginTop = '20px';
+        footer.innerHTML = `
+            <p>Network Wizkid</p>
+            <p>networkwizkid.com</p>
+            <p>${new Date().getFullYear()} All Rights Reserved</p>
+        `;
+        container.appendChild(footer); // Add footer at the bottom of the content
+    }
+}
+
+// Helper function to add a page break before a table or specific section
+function addPageBreakBefore(container) {
+    const pageBreak = document.createElement('div');
+    pageBreak.classList.add('page-break');
+    container.appendChild(pageBreak); // Add page break before the content
+}
+
+// Attach event listeners to each export button
+document.getElementById('exportToPdfOption1').addEventListener('click', () => {
+    exportResultsToPDF('comparisonResults');
+});
+
+document.getElementById('exportToPdfOption2').addEventListener('click', () => {
+    exportResultsToPDF('threeDeviceComparisonResults');
+});
+
+document.getElementById('exportToPdfOption3').addEventListener('click', () => {
+    exportResultsToPDF('filteredNewDevicesResults');
+});
+
+
+// Helper function to add footer to the results container
+function addFooterToContainer(container) {
+    // Ensure the footer isn't added multiple times
+    const existingFooter = container.querySelector('.export-footer');
+    if (!existingFooter) {
+        const footer = document.createElement('div');
+        footer.classList.add('export-footer'); // Mark the footer to prevent duplication
+        footer.style.textAlign = 'center';
+        footer.style.fontSize = '12px';
+        footer.style.marginTop = '20px';
+        footer.innerHTML = `
+            <p>Network Wizkid</p>
+            <p>networkwizkid.com</p>
+            <p>${new Date().getFullYear()} All Rights Reserved</p>
+        `;
+        container.appendChild(footer); // Add footer at the bottom of the content
+    }
+}
+
+// Attach event listeners to each export button
+document.getElementById('exportToPdfOption1').addEventListener('click', () => {
+    exportResultsToPDF('comparisonResults');
+});
+
+document.getElementById('exportToPdfOption2').addEventListener('click', () => {
+    exportResultsToPDF('threeDeviceComparisonResults');
+});
+
+document.getElementById('exportToPdfOption3').addEventListener('click', () => {
+    exportResultsToPDF('filteredNewDevicesResults');
+});
+
+// Attach event listeners to each export button
+document.getElementById('exportToPdfOption1').addEventListener('click', () => {
+    exportResultsToPDF('comparisonResults');
+});
+
+document.getElementById('exportToPdfOption2').addEventListener('click', () => {
+    exportResultsToPDF('threeDeviceComparisonResults');
+});
+
+document.getElementById('exportToPdfOption3').addEventListener('click', () => {
+    exportResultsToPDF('filteredNewDevicesResults');
+});
+
+
+// Attach event listeners to each export button
+document.getElementById('exportToPdfOption1').addEventListener('click', () => {
+    exportResultsToPDF('comparisonResults');
+});
+
+document.getElementById('exportToPdfOption2').addEventListener('click', () => {
+    exportResultsToPDF('threeDeviceComparisonResults');
+});
+
+document.getElementById('exportToPdfOption3').addEventListener('click', () => {
+    exportResultsToPDF('filteredNewDevicesResults');
+});
+
+
 
 
 // Attach event listeners
