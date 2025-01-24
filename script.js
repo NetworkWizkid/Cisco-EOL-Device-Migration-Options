@@ -997,7 +997,7 @@ function exportResultsToPDF(resultsContainerId) {
             margin: [40, 10, 40, 10], // Top, Right, Bottom, Left margins with extra space at the top and bottom
             filename: `${resultsContainerId}_Results.pdf`,
             image: { type: 'png', quality: 1 },
-            html2canvas: { dpi: 192, scale: 0.75 }, // Adjust the scale to fit more content
+            html2canvas: { dpi: 192, scale: 1.5 }, // Adjust the scale to fit more content
             jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' }, // Use A4 format in landscape orientation
             pagebreak: { mode: ['avoid-all', 'css', 'legacy'] } // Avoid page breaks within elements
         };
@@ -1023,6 +1023,32 @@ function exportResultsToPDF(resultsContainerId) {
         alert("Failed to export results. Please try again.");
         hidePleaseWaitPrompt(); // Hide the "Please Wait" prompt in case of error
         isExporting = false; // Reset the flag in case of error
+    }
+}
+
+// Function to export results to Excel using SheetJS
+function exportResultsToExcel(resultsContainerId) {
+    const resultsContainer = document.getElementById(resultsContainerId);
+
+    // Ensure the container is not empty
+    if (!resultsContainer || resultsContainer.innerHTML.trim() === "") {
+        alert("No results available to export!");
+        return;
+    }
+
+    try {
+        // Create a new workbook and worksheet
+        const wb = XLSX.utils.book_new();
+        const ws = XLSX.utils.table_to_sheet(resultsContainer);
+
+        // Add the worksheet to the workbook
+        XLSX.utils.book_append_sheet(wb, ws, "Results");
+
+        // Generate the Excel file and trigger the download
+        XLSX.writeFile(wb, `${resultsContainerId}_Results.xlsx`);
+    } catch (error) {
+        console.error("Error exporting to Excel:", error);
+        alert("Failed to export results. Please try again.");
     }
 }
 
@@ -1090,7 +1116,32 @@ document.getElementById('exportToPdfOption2').addEventListener('click', () => {
     exportResultsToPDF('threeDeviceComparisonResults');
 });
 
-document.getElementById('exportToPdfOption3').addEventListener('click', () => {
+document.getElementById('exportToExcelOption3').addEventListener('click', () => {
+    exportResultsToExcel('filteredNewDevicesResults');
+});
+
+
+// Function to clear filters
+function clearFilters() {
+    metrics.forEach(metric => {
+        document.getElementById(`filter_${metric.key}`).value = '';
+    });
+    noResultsMessage.style.display = 'none'; // Explicitly hide the "no results" message
+    comparisonResults.innerHTML = ''; // Clear the results table for Option Three
+    threeDeviceComparisonResults.innerHTML = '';
+    filteredNewDevicesResults.innerHTML = "";
+}
+
+// Attach event listeners to each export button
+document.getElementById('exportToPdfOption1').addEventListener('click', () => {
+    exportResultsToPDF('comparisonResults');
+});
+
+document.getElementById('exportToPdfOption2').addEventListener('click', () => {
+    exportResultsToPDF('threeDeviceComparisonResults');
+});
+
+document.getElementById('exportToExcelOption3').addEventListener('click', () => {
     exportResultsToPDF('filteredNewDevicesResults');
 });
 
