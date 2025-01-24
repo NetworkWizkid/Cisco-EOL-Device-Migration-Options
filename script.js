@@ -997,7 +997,7 @@ function exportResultsToPDF(resultsContainerId) {
             margin: [40, 10, 40, 10], // Top, Right, Bottom, Left margins with extra space at the top and bottom
             filename: `${resultsContainerId}_Results.pdf`,
             image: { type: 'png', quality: 1 },
-            html2canvas: { dpi: 192, scale: 1.5 }, // Adjust the scale to fit more content
+            html2canvas: { dpi: 192, scale: 0.75 }, // Adjust the scale to fit more content
             jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' }, // Use A4 format in landscape orientation
             pagebreak: { mode: ['avoid-all', 'css', 'legacy'] } // Avoid page breaks within elements
         };
@@ -1093,6 +1093,7 @@ document.getElementById('exportToPdfOption2').addEventListener('click', () => {
 document.getElementById('exportToPdfOption3').addEventListener('click', () => {
     exportResultsToPDF('filteredNewDevicesResults');
 });
+
 
 
 // Attach event listeners
