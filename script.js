@@ -1094,32 +1094,6 @@ document.getElementById('exportToPdfOption3').addEventListener('click', () => {
     exportResultsToPDF('Cisco-FW-EOL-Op3-Results');
 });
 
-
-// Function to clear filters
-function clearFilters() {
-    metrics.forEach(metric => {
-        document.getElementById(`filter_${metric.key}`).value = '';
-    });
-    noResultsMessage.style.display = 'none'; // Explicitly hide the "no results" message
-    comparisonResults.innerHTML = ''; // Clear the results table for Option Three
-    threeDeviceComparisonResults.innerHTML = '';
-    filteredNewDevicesResults.innerHTML = "";
-}
-
-// Attach event listeners to each export button
-document.getElementById('exportToPdfOption1').addEventListener('click', () => {
-    exportResultsToPDF('comparisonResults');
-});
-
-document.getElementById('exportToPdfOption2').addEventListener('click', () => {
-    exportResultsToPDF('Cisco-FW-EOL-Op2-Results');
-});
-
-document.getElementById('exportToPdfOption3').addEventListener('click', () => {
-    exportResultsToPDF('Cisco-FW-EOL-Op3-Results');
-});
-
-
 // Attach event listeners
 filterButton.addEventListener('click', applyFilters);
 clearFiltersButton.addEventListener('click', clearFilters);
