@@ -998,8 +998,8 @@ function exportResultsToPDF(resultsContainerId) {
             margin: [40, 10, 40, 10], // Top, Right, Bottom, Left margins with extra space at the top and bottom
             filename: `${resultsContainerId}_Results.pdf`,
             image: { type: 'png', quality: 1 },
-            html2canvas: { dpi: 192, scale: 4 },
-            jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' }, // Ensure landscape orientation
+            html2canvas: { dpi: 192, scale: 2 }, // Adjust the scale to fit more content
+            jsPDF: { unit: 'mm', format: 'a3', orientation: 'landscape' }, // Use A3 format for more space
             pagebreak: { mode: ['avoid-all', 'css', 'legacy'] } // Avoid page breaks within elements
         };
 
@@ -1071,13 +1071,24 @@ function hidePleaseWaitPrompt() {
     }
 }
 
+// Function to clear filters
+function clearFilters() {
+    metrics.forEach(metric => {
+        document.getElementById(`filter_${metric.key}`).value = '';
+    });
+    noResultsMessage.style.display = 'none'; // Explicitly hide the "no results" message
+    comparisonResults.innerHTML = ''; // Clear the results table for Option Three
+    threeDeviceComparisonResults.innerHTML = '';
+    filteredNewDevicesResults.innerHTML = "";
+}
+
 // Attach event listeners to each export button
 document.getElementById('exportToPdfOption1').addEventListener('click', () => {
-    exportResultsToPDF('Option1-Results-Firewall-EOL-Tool');
+    exportResultsToPDF('comparisonResults');
 });
 
 document.getElementById('exportToPdfOption2').addEventListener('click', () => {
-    exportResultsToPDF('Option2-Results-Firewall-EOL-Tool');
+    exportResultsToPDF('threeDeviceComparisonResults');
 });
 
 document.getElementById('exportToPdfOption3').addEventListener('click', () => {
