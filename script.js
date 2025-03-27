@@ -1,5 +1,5 @@
-// Cisco Firewall Device Metrics
 const devices = {
+    // EoL Cisco Firewall Devices
     'ASA 5506': {
         StatefulInspectionThroughput: '0.75 Gbps',
         StatefulInspectionThroughputMultiprotocol: '0.3 Gbps',
@@ -13,7 +13,8 @@ const devices = {
         FormFactor: 'Desktop',
         NumberOfPowerSupplies: '1',
         Storage: '50 GB',
-        alternatives: ['Secure Firewall 1010']
+        alternatives: ['Secure Firewall 1010'],
+        notes:'notes here'
     },
     'ASA 5508': {
         StatefulInspectionThroughput: '1 Gbps',
@@ -28,7 +29,8 @@ const devices = {
         FormFactor: '1RU',
         NumberOfPowerSupplies: '1',
         Storage: '80 GB',
-        alternatives: ['Secure Firewall 1010', 'Secure Firewall 1120']
+        alternatives: ['Secure Firewall 1010', 'Secure Firewall 1120'],
+        notes: 'notes here'
     },
     'ASA 5516': {
         StatefulInspectionThroughput: '1.8 Gbps',
@@ -43,7 +45,8 @@ const devices = {
         FormFactor: '1RU',
         NumberOfPowerSupplies: '1',
         Storage: '100 GB',
-        alternatives: ['Secure Firewall 1120', 'Secure Firewall 1140']
+        alternatives: ['Secure Firewall 1120', 'Secure Firewall 1140'],
+        notes: 'notes here'
     },
     'ASA 5525': {
         StatefulInspectionThroughput: '2 Gbps',
@@ -58,7 +61,8 @@ const devices = {
         FormFactor: '1RU',
         NumberOfPowerSupplies: '1',
         Storage: '120 GB',
-        alternatives: ['Secure Firewall 1140', 'Secure Firewall 1150']
+        alternatives: ['Secure Firewall 1140', 'Secure Firewall 1150'],
+        notes: 'The Last Date of Support (LDoS) is September 30th 2025. Please see visit the EoL documentation for more information: www.cisco.com/c/en/us/products/collateral/security/asa-firepower-services/asa5525-5545-5555-1yr-series-subs-eol.html',
     },
     'ASA 5545': {
         StatefulInspectionThroughput: '3 Gbps',
@@ -73,7 +77,8 @@ const devices = {
         FormFactor: '1RU',
         NumberOfPowerSupplies: '2',
         Storage: '120 GB',
-        alternatives: ['Secure Firewall 1140', 'Secure Firewall 3110']
+        alternatives: ['Secure Firewall 1140', 'Secure Firewall 3110'],
+        notes: 'notes here'
     },
     'ASA 5555': {
         StatefulInspectionThroughput: '4 Gbps',
@@ -88,9 +93,9 @@ const devices = {
         FormFactor: '1RU',
         NumberOfPowerSupplies: '2',
         Storage: '120 GB',
-        alternatives: ['Secure Firewall 1150', 'Secure Firewall 3110']
+        alternatives: ['Secure Firewall 1150', 'Secure Firewall 3110'],
+        notes: 'notes here'
     },
-    // 5YR License EOL 27th May 2025. 1 & 3 Year Licenses still available
     'Firepower 2110': {
         StatefulInspectionThroughput: '3 Gbps',
         StatefulInspectionThroughputMultiprotocol: '1.5 Gbps',
@@ -105,8 +110,8 @@ const devices = {
         NumberOfPowerSupplies: '1',
         Storage: '100 GB',
         alternatives: ['Secure Firewall 3105'],
+        notes: '5YR License EOL 27th May 2025. 1 & 3 Year Licenses still available'
     },
-    // 5YR License EOL 27th May 2025. 1 & 3 Year Licenses still available
     'Firepower 2120': {
         StatefulInspectionThroughput: '6 Gbps',
         StatefulInspectionThroughputMultiprotocol: '3 Gbps',
@@ -120,9 +125,9 @@ const devices = {
         FormFactor: '1RU',
         NumberOfPowerSupplies: '1',
         Storage: '100 GB',
-        alternatives: ['Secure Firewall 3110', 'Secure Firewall 3120']
+        alternatives: ['Secure Firewall 3110', 'Secure Firewall 3120'],
+        notes: '5YR License EOL 27th May 2025. 1 & 3 Year Licenses still available'
     },
-    // 5YR License EOL 27th May 2025. 1 & 3 Year Licenses still available
     'Firepower 2130': {
         StatefulInspectionThroughput: '10 Gbps',
         StatefulInspectionThroughputMultiprotocol: '5 Gbps',
@@ -136,9 +141,9 @@ const devices = {
         FormFactor: '1RU',
         NumberOfPowerSupplies: '2',
         Storage: '200 GB',
-        alternatives: ['Secure Firewall 3120', 'Secure Firewall 3130']
+        alternatives: ['Secure Firewall 3120', 'Secure Firewall 3130'],
+        notes: '5YR License EOL 27th May 2025. 1 & 3 Year Licenses still available'
     },
-    // 5YR License EOL 27th May 2025. 1 & 3 Year Licenses still available
     'Firepower 2140': {
         StatefulInspectionThroughput: '20 Gbps',
         StatefulInspectionThroughputMultiprotocol: '10 Gbps',
@@ -152,9 +157,9 @@ const devices = {
         FormFactor: '1RU',
         NumberOfPowerSupplies: '2',
         Storage: '200 GB',
-        alternatives: ['Secure Firewall 3120', 'Secure Firewall 3130']
+        alternatives: ['Secure Firewall 3120', 'Secure Firewall 3130'],
+        notes: '5YR License EOL 27th May 2025. 1 & 3 Year Licenses still available'
     },
-    // 1YR licenses are still an option
     'Firepower 4110': { 
         StatefulInspectionThroughput: '35 Gbps', 
         StatefulInspectionThroughputMultiprotocol: '15 Gbps',
@@ -168,7 +173,8 @@ const devices = {
         FormFactor: '1RU',
         NumberOfPowerSupplies: '2',
         Storage: '200 GB',
-        alternatives: ['Secure Firewall 3110', 'Secure Firewall 3140']
+        alternatives: ['Secure Firewall 3110', 'Secure Firewall 3140'],
+        notes: '1YR licenses are still an option'
     },
     'Firepower 4120': { 
         StatefulInspectionThroughput: '60 Gbps', 
@@ -183,7 +189,8 @@ const devices = {
         FormFactor: '1RU',
         NumberOfPowerSupplies: '2',
         Storage: '200 GB',
-        alternatives: ['Secure Firewall 3140', 'Secure Firewall 4215']
+        alternatives: ['Secure Firewall 3140', 'Secure Firewall 4215'],
+        notes: 'Not applicable'
     },
     'Firepower 4140': { 
         StatefulInspectionThroughput: '70 Gbps', 
@@ -198,7 +205,8 @@ const devices = {
         FormFactor: '1RU',
         NumberOfPowerSupplies: '2',
         Storage: '400 GB',
-        alternatives: ['Secure Firewall 3140', 'Secure Firewall 4225']
+        alternatives: ['Secure Firewall 3140', 'Secure Firewall 4225'],
+        notes: 'Not applicable'
     },
     'Firepower 4150': { 
         StatefulInspectionThroughput: '75 Gbps', 
@@ -213,7 +221,8 @@ const devices = {
         FormFactor: '1RU',
         NumberOfPowerSupplies: '2',
         Storage: '400 GB',
-        alternatives: ['Secure Firewall 3140', 'Secure Firewall 4225']
+        alternatives: ['Secure Firewall 3140', 'Secure Firewall 4225'],
+        notes: 'Not applicable'
     },
      'Firepower 9300 SM-24': { 
         StatefulInspectionThroughput: '75 Gbps', 
@@ -228,7 +237,8 @@ const devices = {
         FormFactor: '3RU',
         NumberOfPowerSupplies: '2',
         Storage: '1200 GB',
-        alternatives: ['Secure Firewall 4215', 'Secure Firewall 4225']
+        alternatives: ['Secure Firewall 4215', 'Secure Firewall 4225'],
+        notes: 'Not applicable'
     },
      'Firepower 9300 SM-36': { 
         StatefulInspectionThroughput: '80 Gbps', 
@@ -243,7 +253,8 @@ const devices = {
         FormFactor: '3RU',
         NumberOfPowerSupplies: '2',
         Storage: '1200 GB',
-        alternatives: ['Secure Firewall 4215', 'Secure Firewall 4225']
+        alternatives: ['Secure Firewall 4215', 'Secure Firewall 4225'],
+        notes: 'Not applicable'
     },
      'Firepower 9300 SM-44': { 
         StatefulInspectionThroughput: '80 Gbps', 
@@ -258,7 +269,8 @@ const devices = {
         FormFactor: '3RU',
         NumberOfPowerSupplies: '2',
         Storage: '1200 GB',
-        alternatives: ['Secure Firewall 4215', 'Secure Firewall 4225']
+        alternatives: ['Secure Firewall 4215', 'Secure Firewall 4225'],
+        notes: 'Not applicable'
     },
 };
 const newdevices = {
@@ -530,6 +542,68 @@ const newdevices = {
         Storage: '4800 GB'
     },
 };
+// Firewall Management Center Devices
+const eolfmcdevices = {
+    // EoL FMC models
+    'Firewall Management Center 1600': {
+        MaximumNumberofSensorsManaged: '50',
+        MaximumIPSEvents: '30 Million',
+        Memory: '32 Gbps',
+        CPU: 'One Intel Xeon 4215',
+        EventStorageSpace: '900 Gbps',
+        MaximumEventRate: '5000',
+        alternatives: ['Firewall Management Center 1700'],
+        notes: 'test'
+    },
+    'Firewall Management Center 2600': {
+        MaximumNumberofSensorsManaged: '300',
+        MaximumIPSEvents: '60 million',
+        Memory: '64 Gbps',
+        CPU: 'Two Intel Xeon 4215',
+        EventStorageSpace: '1800 Gbps',
+        MaximumEventRate: '12000',
+        alternatives: ['Firewall Management Center 2700'],
+        notes: 'test'
+    },
+    'Firewall Management Center 4600': {
+        MaximumNumberofSensorsManaged: '750',
+        MaximumIPSEvents: '300 Million',
+        Memory: '128 Gbps',
+        CPU: 'Two Intel Xeon 4214',
+        EventStorageSpace: '3200 Gbps',
+        MaximumEventRate: '20000',
+        alternatives: ['Firewall Management Center 4700'],
+        notes: 'test'
+    },
+};
+
+const fmcnewdevices = {
+    // New FMC models
+    'Firewall Management Center 1700': {
+        MaximumNumberofSensorsManaged: '50',
+        MaximumIPSEvents: '30 Million',
+        Memory: '32 Gbps',
+        CPU: 'AMD 1P Rome 7232P',
+        EventStorageSpace: '900 Gbps',
+        MaximumEventRate: '5000',
+    },
+    'Firewall Management Center 2700': {
+        MaximumNumberofSensorsManaged: '300',
+        MaximumIPSEvents: '60 Million',
+        Memory: '64 Gbps',
+        CPU: 'AMD 1P Rome 7282',
+        EventStorageSpace: '1800 Gbps',
+        MaximumEventRate: '12000',
+    },
+    'Firewall Management Center 4700': {
+        MaximumNumberofSensorsManaged: '1000',
+        MaximumIPSEvents: '400 Million',
+        Memory: '128 Gbps',
+        CPU: 'AMD 1P Rome 7352P',
+        EventStorageSpace: '3200 Gbps',
+        MaximumEventRate: '30000',
+    },
+};
 
 // List of metrics to compare
 const metrics = [
@@ -546,6 +620,16 @@ const metrics = [
   { name: "Maximum Number of Power Supplies", key: "NumberOfPowerSupplies" },
   { name: "Factory Storage", key: "Storage" }
 ];
+
+const fmcMetrics = [
+    { name: "Maximum Number of Sensors Managed", key: "MaximumNumberofSensorsManaged" },
+    { name: "Maximum IPS Events", key: "MaximumIPSEvents" },
+    { name: "Memory", key: "Memory" },
+    { name: "CPU", key: "CPU" },
+    { name: "Event Storage Space", key: "EventStorageSpace" },
+    { name: "Maximum Event Rate", key: "MaximumEventRate" }
+];
+
 
 // Get references to HTML elements
 const deviceSelect = document.getElementById('deviceSelect');
@@ -623,8 +707,8 @@ function calculateDifference(eolValue, altValue) {
 
     // Check if both values are non-numeric
     if (eolData.number === null && altData.number === null) {
-        // If both values are non-numeric, display the text and mark the difference as "Not Applicable"
-        return { difference: 'Not Applicable', positive: null };
+        // Wrap "Not Applicable" in a span with the .not-applicable class
+        return { difference: '<span class="not-applicable">Not Applicable</span>', positive: null };
     }
 
     // If at least one value is numeric, calculate the difference
@@ -635,9 +719,8 @@ function calculateDifference(eolValue, altValue) {
     }
 
     // In case one value is numeric and the other is non-numeric
-    return { difference: 'Not Applicable', positive: null };
+    return { difference: '<span class="not-applicable">Not Applicable</span>', positive: null };
 }
-
 
 
 // Add filter inputs for each metric
@@ -708,6 +791,105 @@ metrics.forEach(metric => {
     }
 
 });
+
+// Populate dropdown with EoL FMC devices for Option 4
+const fmcSelect = document.createElement('select');
+fmcSelect.id = 'fmcDeviceSelect';
+fmcSelect.innerHTML = `<option value="" selected disabled>Select an EoL FMC Device</option>`;
+Object.keys(eolfmcdevices).forEach(device => {
+    let option = document.createElement('option');
+    option.value = device;
+    option.textContent = device;
+    fmcSelect.appendChild(option);
+});
+
+// Function to filter and display FMC alternatives
+function filterAndDisplayFmcAlternatives(selectedDevice, filters) {
+    const deviceData = eolfmcdevices[selectedDevice];
+    if (!deviceData) {
+        noResultsMessage.style.display = 'block';
+        document.getElementById('fmcComparisonResults').innerHTML = ''; // Clear previous results
+        document.getElementById('option4Notes').style.display = 'none'; // Hide Notes
+        return false;
+    }
+
+    // Build comparison results
+    let resultsHtml = `<h2>Comparison for ${selectedDevice}</h2>`;
+    resultsHtml += `
+        <table class="comparison-table">
+            <tr>
+                <th>Metric</th>
+                <th>${selectedDevice} (EoL Device)</th>
+                ${deviceData.alternatives.map(alt => `<th>${alt} (Alternative Device)</th><th>Difference</th>`).join('')}
+            </tr>`;
+
+    fmcMetrics.forEach(metric => {
+        resultsHtml += `<tr>
+            <td><b>${metric.name}:</b></td>
+            <td>${metric.key === "CPU" ? deviceData[metric.key] : formatNumber(deviceData[metric.key]) || 'No Comparable Data Available'}</td>`;
+
+        deviceData.alternatives.forEach(alternative => {
+            const altData = fmcnewdevices[alternative];
+            const eolValue = deviceData[metric.key];
+            const altValue = altData ? altData[metric.key] : null;
+
+            if (metric.key === "CPU") {
+                resultsHtml += `<td>${altValue || 'No Comparable Data Available'}</td>`;
+                resultsHtml += `<td class="not-applicable">Not Applicable</td>`;
+            } else {
+                const diffResult = calculateDifference(eolValue, altValue);
+                const diffClass = diffResult.positive ? 'positive-diff' : 'negative-diff';
+                resultsHtml += `<td>${formatNumber(altValue) || 'No Comparable Data Available'}</td>`;
+                resultsHtml += `<td class="${diffClass}">${diffResult.difference}</td>`;
+            }
+        });
+
+        resultsHtml += `</tr>`;
+    });
+
+    resultsHtml += `</table>`;
+
+    document.getElementById('fmcComparisonResults').innerHTML = resultsHtml;
+
+    // Display notes if available
+    if (deviceData.notes) {
+        document.getElementById('option4NotesContent').innerText = deviceData.notes;
+        document.getElementById('option4Notes').style.display = 'block';
+    } else {
+        document.getElementById('option4Notes').style.display = 'none';
+    }
+
+    return true;
+}
+
+
+// Event listener for FMC Option
+document.getElementById('fmcDeviceSelect').addEventListener('change', () => {
+    const selectedDevice = document.getElementById('fmcDeviceSelect').value;
+    const filters = {}; 
+    filterAndDisplayFmcAlternatives(selectedDevice, filters);
+});
+
+// Populate dropdown with EoL FMC devices
+Object.keys(eolfmcdevices).forEach(device => {
+    let option = document.createElement('option');
+    option.value = device;
+    option.textContent = device;
+    document.getElementById('fmcDeviceSelect').appendChild(option);
+});
+
+// Clear button for FMC
+document.getElementById('clearFmcButton').addEventListener('click', () => {
+    document.getElementById('fmcDeviceSelect').selectedIndex = 0;
+    document.getElementById('fmcComparisonResults').innerHTML = ''; // Clear Option 4 results
+    noResultsMessage.style.display = 'none'; // Hide "no results" message
+
+    // Clear notes for Option 4
+    document.getElementById('option4Notes').style.display = 'none';
+    document.getElementById('option4NotesContent').innerText = '';
+});
+
+
 
 // Filter form displayed with HTML
 filterOptions.appendChild(filterForm);
@@ -801,6 +983,15 @@ function compareTwoDevices(device1, device2, resultsContainer) {
 // Handle the comparison between three devices
 function compareThreeDevices(device1, device2, device3) {
     const device1Data = devices[device1] || newdevices[device1];
+
+    // Show Notes for the selected EoL device (Option 2)
+    if (device1Data && device1Data.notes) {
+        document.getElementById('option2NotesContent').innerText = device1Data.notes;
+        document.getElementById('option2Notes').style.display = 'block';
+    } else {
+        document.getElementById('option2Notes').style.display = 'none';
+    }
+
     const device2Data = devices[device2] || newdevices[device2];
     const device3Data = devices[device3] || newdevices[device3];
 
@@ -808,15 +999,15 @@ function compareThreeDevices(device1, device2, device3) {
 
     let resultsHtml = `<h2>Comparison between ${device1}, ${device2} and ${device3}</h2>`;
     resultsHtml += `
-  <table class="comparison-table"> 
-    <tr>
-      <th>Metric</th>
-      <th>${device1}</th>
-      <th>${device2}</th>
-      <th>${device3}</th>
-      <th>Difference (Device 2 vs Device 1)</th> 
-      <th>Difference (Device 3 vs Device 1)</th> 
-    </tr>`;
+    <table class="comparison-table">
+      <tr>
+        <th>Metric</th>
+        <th>${device1}</th>
+        <th>${device2}</th>
+        <th>${device3}</th>
+        <th>Difference (Device 2 vs Device 1)</th>
+        <th>Difference (Device 3 vs Device 1)</th>
+      </tr>`;
 
     metrics.forEach(metric => {
         const value1 = device1Data[metric.key];
@@ -829,14 +1020,14 @@ function compareThreeDevices(device1, device2, device3) {
         const diffClass12 = diff12.positive !== null ? (diff12.positive ? 'positive-diff' : 'negative-diff') : '';
         const diffClass13 = diff13.positive !== null ? (diff13.positive ? 'positive-diff' : 'negative-diff') : '';
 
-        resultsHtml += `<tr> 
-      <td><b>${metric.name}:</b></td>
-      <td>${formatNumber(value1)}</td>
-      <td>${formatNumber(value2)}</td>
-      <td>${formatNumber(value3)}</td>
-      <td class="${diffClass12}">${diff12.difference}</td>
-      <td class="${diffClass13}">${diff13.difference}</td>
-    </tr>`;
+        resultsHtml += `<tr>
+          <td><b>${metric.name}:</b></td>
+          <td>${formatNumber(value1)}</td>
+          <td>${formatNumber(value2)}</td>
+          <td>${formatNumber(value3)}</td>
+          <td class="${diffClass12}">${diff12.difference}</td>
+          <td class="${diffClass13}">${diff13.difference}</td>
+        </tr>`;
     });
 
     resultsHtml += `</table>`;
@@ -846,6 +1037,7 @@ function compareThreeDevices(device1, device2, device3) {
 
     return true;
 }
+
 
 function displayFilteredNewDevices(filters) {
     const filteredNewDevices = Object.keys(newdevices).filter(newDevice => {
@@ -898,10 +1090,19 @@ function filterAndDisplayAlternatives(selectedDevice, filters) {
     if (!deviceData) {
         noResultsMessage.style.display = 'block';
         comparisonResults.innerHTML = '';
-        threeDeviceComparisonResults.innerHTML = '';
+        document.getElementById('option1Notes').style.display = 'none'; // Hide Notes
         return false;
     }
 
+    // Update and show Notes for Option 1
+    if (deviceData.notes) {
+        document.getElementById('option1NotesContent').innerText = deviceData.notes;
+        document.getElementById('option1Notes').style.display = 'block';
+    } else {
+        document.getElementById('option1Notes').style.display = 'none';
+    }
+
+    // Filtering and displaying alternatives logic
     const filteredAlternatives = deviceData.alternatives.filter(alternative => {
         const altData = newdevices[alternative];
         return Object.keys(filters).every(metricKey => {
@@ -912,7 +1113,6 @@ function filterAndDisplayAlternatives(selectedDevice, filters) {
         });
     });
 
-    // Generate the comparison table or show "no results" message
     if (filteredAlternatives.length === 0) {
         noResultsMessage.style.display = 'block';
         comparisonResults.innerHTML = '';
@@ -922,17 +1122,17 @@ function filterAndDisplayAlternatives(selectedDevice, filters) {
 
         let resultsHtml = `<h2>Comparison for ${selectedDevice}</h2>`;
         resultsHtml += `
-    <table class="comparison-table"> 
-      <tr>
-        <th>Metric</th>
-        <th>${selectedDevice} (EoL Device)</th>
-        ${filteredAlternatives.map(alt => `<th>${alt} (Alternative Device)</th><th>Difference</th>`).join('')}
-      </tr>`;
+        <table class="comparison-table">
+          <tr>
+            <th>Metric</th>
+            <th>${selectedDevice} (EoL Device)</th>
+            ${filteredAlternatives.map(alt => `<th>${alt} (Alternative Device)</th><th>Difference</th>`).join('')}
+          </tr>`;
 
         metrics.forEach(metric => {
-            resultsHtml += `<tr> 
-        <td><b>${metric.name}:</b></td>
-        <td>${formatNumber(deviceData[metric.key]) || 'No Comparable Data Available'}</td>`;
+            resultsHtml += `<tr>
+            <td><b>${metric.name}:</b></td>
+            <td>${formatNumber(deviceData[metric.key]) || 'No Comparable Data Available'}</td>`;
 
             filteredAlternatives.forEach(alternative => {
                 const altData = newdevices[alternative];
@@ -957,100 +1157,234 @@ function filterAndDisplayAlternatives(selectedDevice, filters) {
     }
 }
 
+
 // Function to clear filters
 function clearFilters() {
+    // Clear filter inputs
     metrics.forEach(metric => {
         document.getElementById(`filter_${metric.key}`).value = '';
     });
-    noResultsMessage.style.display = 'none'; // Explicitly hide the "no results" message
-    comparisonResults.innerHTML = ''; // Clear the results table for Option Three
-    threeDeviceComparisonResults.innerHTML = '';
-    filteredNewDevicesResults.innerHTML = "";
-   
+
+    // Hide and clear notes for all options
+    document.getElementById('option1Notes').style.display = 'none';
+    document.getElementById('option1NotesContent').innerText = '';
+
+    document.getElementById('option2Notes').style.display = 'none';
+    document.getElementById('option2NotesContent').innerText = '';
+
+    document.getElementById('option4Notes').style.display = 'none';
+    document.getElementById('option4NotesContent').innerText = '';
+
+    // Clear results and hide "no results" message
+    noResultsMessage.style.display = 'none';
+    comparisonResults.innerHTML = ''; // Clear Option 1 results
+    threeDeviceComparisonResults.innerHTML = ''; // Clear Option 2 results
+    filteredNewDevicesResults.innerHTML = ''; // Clear Option 3 results
 }
 
 let isExporting = false; // Flag to track if the PDF is being exported
 
-// Function to export results to PDF using html2pdf.js
-function exportResultsToPDF(resultsContainerId) {
-    if (isExporting) {
-        return; // Prevent multiple exports
+// Export to PDF Function
+function exportResultsToPDF(resultsContainerId, optionNumber) {
+    console.log("Export function triggered with:", { resultsContainerId, optionNumber });
+
+    if (typeof optionNumber === "undefined" || optionNumber === null || isNaN(optionNumber)) {
+        console.error("Error: optionNumber is undefined or invalid.");
+        alert("Export failed: Missing or invalid option number.");
+        return;
     }
 
     const resultsContainer = document.getElementById(resultsContainerId);
-
-    // Ensure the container is not empty
     if (!resultsContainer || resultsContainer.innerHTML.trim() === "") {
+        console.error("Error: Results container not found or empty.");
         alert("No results available to export!");
         return;
     }
 
     try {
-        isExporting = true; // Set the flag to true to indicate export is in progress
-        showPleaseWaitPrompt(); // Show the "Please Wait" prompt
+        const filename = `Option${optionNumber}-Results.pdf`;
 
-        // Add the website footer to the container (if not already included)
-        addFooterToContainer(resultsContainer);
+        const tempContainer = document.createElement("div");
+        tempContainer.innerHTML = resultsContainer.innerHTML;
 
-        // Options for html2pdf
+        // Append notes if available
+        const notesContainerId = `option${optionNumber}Notes`;
+        const notesContainer = document.getElementById(notesContainerId);
+
+        if (notesContainer && notesContainer.offsetHeight > 0 && notesContainer.offsetWidth > 0) {
+            const notesContent = notesContainer.innerHTML;
+            console.log("Appending Notes:", notesContent);
+            tempContainer.innerHTML += `
+                <div style="margin-top: 50px;">
+                    <h2 style="text-decoration: underline;">Notes</h2>
+                    ${notesContent}
+                </div>`;
+        }
+
+        console.log("Temp Container Content for Export:", tempContainer.innerHTML);
+
         const options = {
-            margin: [40, 10, 40, 10], // Top, Right, Bottom, Left margins with extra space at the top and bottom
-            filename: `${resultsContainerId}_Results.pdf`,
+            margin: [10, 10, 40, 10],
+            filename,
             image: { type: 'png', quality: 1 },
-            html2canvas: { dpi: 192, scale: 1.5 }, // Adjust the scale to fit more content
-            jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' }, // Use A4 format in landscape orientation
-            pagebreak: { mode: ['avoid-all', 'css', 'legacy'] } // Avoid page breaks within elements
+            html2canvas: {
+                dpi: 300,
+                scale: 2,
+                useCORS: true // Ensure links to external resources are handled
+            },
+            jsPDF: {
+                unit: 'mm',
+                format: 'a4',
+                orientation: 'landscape'
+            },
+            pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
         };
 
-        // Use html2pdf to convert the container to PDF and save it
-        html2pdf().from(resultsContainer).set(options).toPdf().get('pdf').then(function (pdf) {
-            const totalPages = pdf.internal.getNumberOfPages();
+        html2pdf()
+            .from(tempContainer)
+            .set(options)
+            .toPdf()
+            .get("pdf")
+            .then((pdf) => {
+                // Add clickable links
+                console.log("Processing clickable links...");
+                const links = tempContainer.querySelectorAll("a");
 
-            for (let i = 1; i <= totalPages; i++) {
-                pdf.setPage(i);
-                pdf.addImage('https://networkwizkid.com/wp-content/uploads/2024/09/new-logo-final-v3-full-e1677752694770.png', 'PNG', 10, 10, 50, 20); // Adjust the position and size as needed
-            }
+                // Get PDF page dimensions
+                const pageWidth = pdf.internal.pageSize.getWidth();
+                const pageHeight = pdf.internal.pageSize.getHeight();
 
-            pdf.save(`${resultsContainerId}_Results.pdf`);
-            hidePleaseWaitPrompt(); // Hide the "Please Wait" prompt
-            isExporting = false; // Reset the flag after export is complete
-        }).then(() => {
-            // Clear the filters after the PDF has been downloaded
-            clearFilters();
-        });
+                links.forEach((link) => {
+                    const href = link.getAttribute("href");
+                    if (href) {
+                        const rect = link.getBoundingClientRect();
+                        const x = (rect.left / window.innerWidth) * pageWidth; // Convert X position to PDF scale
+                        const y = (rect.top / window.innerHeight) * pageHeight; // Convert Y position to PDF scale
+                        const width = (rect.width / window.innerWidth) * pageWidth;
+                        const height = (rect.height / window.innerHeight) * pageHeight;
+
+                        // Add clickable area for the link
+                        pdf.link(x, y, width, height, { url: href });
+                        console.log(`Added link to PDF: ${href}`);
+                    }
+                });
+
+                // Add page number and website URL footer
+                const totalPages = pdf.internal.getNumberOfPages();
+                for (let i = 1; i <= totalPages; i++) {
+                    pdf.setPage(i);
+                    pdf.setFontSize(10);
+
+                    // Add centered footer
+                    pdf.text(
+                        "www.networkwizkid.com",
+                        pageWidth / 2,
+                        pageHeight - 10,
+                        { align: 'center' }
+                    );
+
+                    // Add page number at the bottom-right
+                    pdf.text(
+                        `Page ${i} of ${totalPages}`,
+                        pageWidth - 20,
+                        pageHeight - 10
+                    );
+                }
+
+                // Save the finalized PDF
+                pdf.save(filename);
+                console.log("PDF export successful with clickable links:", filename);
+            })
+            .catch((error) => {
+                console.error("PDF export failed:", error);
+                alert("PDF export failed. Please try again.");
+            });
     } catch (error) {
-        console.error("Error exporting to PDF:", error);
-        alert("Failed to export results. Please try again.");
-        hidePleaseWaitPrompt(); // Hide the "Please Wait" prompt in case of error
-        isExporting = false; // Reset the flag in case of error
+        console.error("Unexpected error during export:", error);
+        alert("An unexpected error occurred during export. Please try again.");
     }
 }
 
+
+
+
+
+
+
+
 // Function to export results to Excel using SheetJS
-function exportResultsToExcel(resultsContainerId) {
+function exportResultsToExcel(resultsContainerId, optionNumber) {
     const resultsContainer = document.getElementById(resultsContainerId);
 
-    // Ensure the container is not empty
     if (!resultsContainer || resultsContainer.innerHTML.trim() === "") {
         alert("No results available to export!");
+        console.log("Results container is empty or not found.");
         return;
     }
 
+    let filename = "";
+    switch (optionNumber) {
+        case 3:
+            filename = "Option3-Firewall-Filter-Results.xlsx";
+            break;
+        case 4:
+            filename = "Option4-FMC-Results.xlsx";
+            break;
+        default:
+            filename = "Results.xlsx";
+    }
+
     try {
-        // Create a new workbook and worksheet
-        const wb = XLSX.utils.book_new();
-        const ws = XLSX.utils.table_to_sheet(resultsContainer);
+        const workbook = XLSX.utils.book_new();
+        const worksheet = XLSX.utils.table_to_sheet(resultsContainer);
 
-        // Add the worksheet to the workbook
-        XLSX.utils.book_append_sheet(wb, ws, "Results");
+        // Dynamically include Notes in Excel export
+        let notesContainerId = "";
+        switch (optionNumber) {
+            case 1:
+                notesContainerId = "option1Notes";
+                break;
+            case 2:
+                notesContainerId = "option2Notes";
+                break;
+            case 4:
+                notesContainerId = "option4Notes";
+                break;
+        }
 
-        // Generate the Excel file and trigger the download
-        XLSX.writeFile(wb, `${resultsContainerId}_Results.xlsx`);
+        if (notesContainerId) {
+            const notesContainer = document.getElementById(notesContainerId);
+            if (notesContainer && notesContainer.style.display !== 'none') {
+                const notesContent = notesContainer.innerText;
+                XLSX.utils.sheet_add_aoa(worksheet, [[notesContent]], { origin: -1 });
+            }
+        }
+
+        XLSX.utils.book_append_sheet(workbook, worksheet, "Results");
+        XLSX.writeFile(workbook, filename);
+        console.log(`Excel file saved as ${filename}`);
     } catch (error) {
         console.error("Error exporting to Excel:", error);
         alert("Failed to export results. Please try again.");
     }
 }
+
+// Attach event listeners to each export button
+document.getElementById('exportToPdfOption1').addEventListener('click', () => {
+    exportResultsToPDF('comparisonResults', 1);
+});
+
+document.getElementById('exportToPdfOption2').addEventListener('click', () => {
+    exportResultsToPDF('threeDeviceComparisonResults', 2);
+});
+
+document.getElementById('exportToPdfOption4').addEventListener('click', () => {
+    exportResultsToPDF('fmcComparisonResults', 4);
+});
+
+document.getElementById('exportToExcelOption3').addEventListener('click', () => {
+    exportResultsToExcel('filteredNewDevicesResults', 3);
+});
 
 // Helper function to add footer to the results container
 function addFooterToContainer(container) {
@@ -1101,25 +1435,19 @@ function clearFilters() {
     metrics.forEach(metric => {
         document.getElementById(`filter_${metric.key}`).value = '';
     });
-    noResultsMessage.style.display = 'none'; // Explicitly hide the "no results" message
+
+    // Clear the "Notes" section
+    const notesContainer = document.getElementById('fmcNotes');
+    if (notesContainer) {
+        notesContainer.style.display = 'none'; // Hide the notes
+        document.getElementById('fmcNotesContent').innerText = ''; // Clear content
+    }
+
+    noResultsMessage.style.display = 'none'; // Hide the "no results" message
     comparisonResults.innerHTML = ''; // Clear the results table for Option Three
     threeDeviceComparisonResults.innerHTML = '';
-    filteredNewDevicesResults.innerHTML = "";
+    filteredNewDevicesResults.innerHTML = '';
 }
-
-// Attach event listeners to each export button
-document.getElementById('exportToPdfOption1').addEventListener('click', () => {
-    exportResultsToPDF('comparisonResults');
-});
-
-document.getElementById('exportToPdfOption2').addEventListener('click', () => {
-    exportResultsToPDF('threeDeviceComparisonResults');
-});
-
-document.getElementById('exportToExcelOption3').addEventListener('click', () => {
-    exportResultsToExcel('filteredNewDevicesResults');
-});
-
 
 // Function to clear filters
 function clearFilters() {
@@ -1132,21 +1460,6 @@ function clearFilters() {
     filteredNewDevicesResults.innerHTML = "";
 }
 
-// Attach event listeners to each export button
-document.getElementById('exportToPdfOption1').addEventListener('click', () => {
-    exportResultsToPDF('comparisonResults');
-});
-
-document.getElementById('exportToPdfOption2').addEventListener('click', () => {
-    exportResultsToPDF('threeDeviceComparisonResults');
-});
-
-document.getElementById('exportToExcelOption3').addEventListener('click', () => {
-    exportResultsToPDF('filteredNewDevicesResults');
-});
-
-
-
 // Attach event listeners
 filterButton.addEventListener('click', applyFilters);
 clearFiltersButton.addEventListener('click', clearFilters);
@@ -1158,17 +1471,26 @@ deviceSelectCompare2.addEventListener('change', applyFilters);
 // Button clear, option one
 clearButton.addEventListener('click', () => {
     deviceSelect.selectedIndex = 0;
-    comparisonResults.innerHTML = ''; // Clear the results table
-    noResultsMessage.style.display = 'none'; // Hide the "no results" message
-    
+    comparisonResults.innerHTML = ''; // Clear Option 1 results
+    noResultsMessage.style.display = 'none'; // Hide "no results" message
+
+    // Clear notes for Option 1
+    document.getElementById('option1Notes').style.display = 'none';
+    document.getElementById('option1NotesContent').innerText = '';
 });
+
+
 
 // Add event listener for Option Two clear button
 clearButtonOptionTwo.addEventListener('click', () => {
     deviceSelectEoL.selectedIndex = 0;
     deviceSelectCompare1.selectedIndex = 0;
     deviceSelectCompare2.selectedIndex = 0;
-    threeDeviceComparisonResults.innerHTML = ''; // Clear the results table for Option Two
-    noResultsMessage.style.display = 'none';
-  
+    threeDeviceComparisonResults.innerHTML = ''; // Clear Option 2 results
+    noResultsMessage.style.display = 'none'; // Hide "no results" message
+
+    // Clear notes for Option 2
+    document.getElementById('option2Notes').style.display = 'none';
+    document.getElementById('option2NotesContent').innerText = '';
 });
+

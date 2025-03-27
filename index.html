@@ -15,7 +15,7 @@
 <body>
 
     <header>
-        <img src="https://networkwizkid.com/wp-content/uploads/2024/09/new-logo-final-v3-full-e1677752694770.png" width="300" height="100" alt="Network Wizkid logo" />
+        <img src="https://i.postimg.cc/tgGK2gZr/Navy-and-Blue-Abstract-Modern-Globe-Technology-Logo-Design-1.png" width="500" height="500" alt="Network Wizkid logo" />
         <h1>Cisco Firewall End of Life (EoL) Device Replacement Finder</h1>
     </header>
 
@@ -52,35 +52,37 @@
                 <p>Select an EoL firewall device to see recommended replacements based on key capabilities.</p>
             </div>
             <form id="deviceForm">
-
                 <select id="deviceSelect" aria-describedby="deviceSelectLabel">
                     <option value="" selected disabled>Select an EoL Device</option>
                 </select>
-
             </form>
             <div id="threeDeviceComparison">
                 <button type="button" id="clearButton" class="clear-selection-button">Clear Selection</button>
                 <button id="exportToPdfOption1">Export Results to PDF</button>
             </div>
             <div id="comparisonResults" aria-live="polite">
+                <!-- Comparison results will appear here -->
+            </div>
+            <div id="option1Notes" class="notes-container">
+                <h4>EoL Device Notes</h4>
+                <h5>The following notes apply to the chosen End-of-Life (EoL) device:</h5>
+                <p id="option1NotesContent"></p>
             </div>
         </section>
 
+
         <section>
             <h2><u>Option 2: Compare Multiple Cisco Firewalls</u></h2>
-
             <div id="threeDeviceComparison">
                 <p>Select an EoL firewall device and up to two new firewalls to compare their metrics side-by-side.</p>
 
                 <select id="deviceSelectEoL" aria-describedby="deviceSelectEoLLabel">
-                    <option value="" selected disabled> Select the EoL Device</option>
+                    <option value="" selected disabled>Select the EoL Device</option>
                 </select>
-
 
                 <select id="deviceSelectCompare1" aria-describedby="deviceSelectCompare1Label">
                     <option value="" selected disabled>Select the First New Firewall</option>
                 </select>
-
 
                 <select id="deviceSelectCompare2" aria-describedby="deviceSelectCompare2Label">
                     <option value="" selected disabled>Select the Second New Firewall (Optional)</option>
@@ -89,8 +91,13 @@
                 <button type="button" id="clearButtonOptionTwo" class="clear-selection-button">Clear Selection</button>
                 <button id="exportToPdfOption2">Export Results to PDF</button>
             </div>
-
             <div id="threeDeviceComparisonResults" aria-live="polite">
+                <!-- Comparison results will appear here -->
+            </div>
+            <div id="option2Notes" class="notes-container">
+                <h4>EoL Device Notes</h4>
+                <h5>The following notes apply to the chosen End-of-Life (EoL) device:</h5>
+                <p id="option2NotesContent"></p>
             </div>
         </section>
 
@@ -111,13 +118,36 @@
             <div id="filteredNewDevicesResults" aria-live="polite"> </div> <div id="comparisonResults" aria-live="polite">
             </div>
             <div class="button-container">
-                 <p><button id="exportToExcelOption3">Export Results to Excel</button></p>
+                <p><button id="exportToExcelOption3">Export Results to Excel</button></p>
             </div>
         </section>
 
         <div id="noResultsMessage" class="error-message" style="display: none;">
             Based on your requirements, no comparable firewall devices exist.
         </div>
+
+        <section>
+            <h2><u>Option 4: Find Recommended Alternative Firewall Management Centers (FMC)</u></h2>
+            <div id="fmcComparison">
+                <p>Select an EoL Firewall Management Center to see recommended replacements based on key capabilities.</p>
+            </div>
+            <form id="fmcForm">
+                <select id="fmcDeviceSelect" aria-describedby="fmcDeviceSelectLabel">
+                    <option value="" selected disabled>Select an EoL FMC Device</option>
+                </select>
+            </form>
+            <div id="fmcComparison">
+                <button type="button" id="clearFmcButton" class="clear-selection-button">Clear Selection</button>
+                <button id="exportToPdfOption4">Export Results to PDF</button>
+            </div>
+            <div id="fmcComparisonResults" aria-live="polite">
+            </div>
+            <div id="option4Notes" class="notes-container">
+                <h4>EoL FMC Device Notes</h4>
+                <h5>The following notes apply to the chosen End-of-Life (EoL) device:</h5>
+                <p id="option4NotesContent"></p>
+            </div>
+        </section>
 
     </main>
 
