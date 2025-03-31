@@ -14,7 +14,7 @@ const devices = {
         NumberOfPowerSupplies: '1',
         Storage: '50 GB',
         alternatives: ['Secure Firewall 1010'],
-        notes:'notes here'
+        notes:'The Last Date of Support (LDoS) is August 31st 2026. Please visit the EoL documentation for more information: https://www.cisco.com/c/en/us/products/collateral/security/asa-5500-series-next-generation-firewalls/eos-eol-notice-c51-744797.html'
     },
     'ASA 5508': {
         StatefulInspectionThroughput: '1 Gbps',
@@ -30,7 +30,7 @@ const devices = {
         NumberOfPowerSupplies: '1',
         Storage: '80 GB',
         alternatives: ['Secure Firewall 1010', 'Secure Firewall 1120'],
-        notes: 'notes here'
+        notes: 'The Last Date of Support (LDoS) is August 31st 2026. Please visit the EoL documentation for more information: https://www.cisco.com/site/us/en/products/collateral/firewalls/asa-5500-series-next-generation-firewalls/eos-eol-notice-c51-744798.html'
     },
     'ASA 5516': {
         StatefulInspectionThroughput: '1.8 Gbps',
@@ -46,7 +46,7 @@ const devices = {
         NumberOfPowerSupplies: '1',
         Storage: '100 GB',
         alternatives: ['Secure Firewall 1120', 'Secure Firewall 1140'],
-        notes: 'notes here'
+        notes: 'The Last Date of Support (LDoS) is August 31st 2026. Please visit the EoL documentation for more information: https://www.cisco.com/site/us/en/products/collateral/firewalls/asa-5500-series-next-generation-firewalls/eos-eol-notice-c51-744798.html'
     },
     'ASA 5525': {
         StatefulInspectionThroughput: '2 Gbps',
@@ -62,7 +62,7 @@ const devices = {
         NumberOfPowerSupplies: '1',
         Storage: '120 GB',
         alternatives: ['Secure Firewall 1140', 'Secure Firewall 1150'],
-        notes: 'The Last Date of Support (LDoS) is September 30th 2025. Please see visit the EoL documentation for more information: www.cisco.com/c/en/us/products/collateral/security/asa-firepower-services/asa5525-5545-5555-1yr-series-subs-eol.html',
+        notes: 'The Last Date of Support (LDoS) is September 30th 2025. Please visit the EoL documentation for more information: https://www.cisco.com/c/en/us/products/collateral/security/asa-firepower-services/asa5525-5545-5555-1yr-series-subs-eol.html',
     },
     'ASA 5545': {
         StatefulInspectionThroughput: '3 Gbps',
@@ -78,7 +78,7 @@ const devices = {
         NumberOfPowerSupplies: '2',
         Storage: '120 GB',
         alternatives: ['Secure Firewall 1140', 'Secure Firewall 3110'],
-        notes: 'notes here'
+        notes: 'The Last Date of Support (LDoS) is September 30th 2025. Please visit the EoL documentation for more information: https://www.cisco.com/c/en/us/products/collateral/security/asa-firepower-services/asa5525-5545-5555-1yr-series-subs-eol.html',
     },
     'ASA 5555': {
         StatefulInspectionThroughput: '4 Gbps',
@@ -94,7 +94,7 @@ const devices = {
         NumberOfPowerSupplies: '2',
         Storage: '120 GB',
         alternatives: ['Secure Firewall 1150', 'Secure Firewall 3110'],
-        notes: 'notes here'
+        notes: 'The Last Date of Support (LDoS) is September 30th 2025. Please visit the EoL documentation for more information: https://www.cisco.com/c/en/us/products/collateral/security/asa-firepower-services/asa5525-5545-5555-1yr-series-subs-eol.html',
     },
     'Firepower 2110': {
         StatefulInspectionThroughput: '3 Gbps',
@@ -110,7 +110,7 @@ const devices = {
         NumberOfPowerSupplies: '1',
         Storage: '100 GB',
         alternatives: ['Secure Firewall 3105'],
-        notes: '5YR License EOL 27th May 2025. 1 & 3 Year Licenses still available'
+        notes: '5YR License EOL 27th May 2025. 1 & 3 Year Licenses still available. The Last Date of Support (LDoS) is May 31st 2030. Please visit the EoL documentation for more information: https://www.cisco.com/c/en/us/products/collateral/security/firepower-ngfw/firepower-2100-series-sec-app-5-yr-sub-eol.html'
     },
     'Firepower 2120': {
         StatefulInspectionThroughput: '6 Gbps',
@@ -126,7 +126,7 @@ const devices = {
         NumberOfPowerSupplies: '1',
         Storage: '100 GB',
         alternatives: ['Secure Firewall 3110', 'Secure Firewall 3120'],
-        notes: '5YR License EOL 27th May 2025. 1 & 3 Year Licenses still available'
+        notes: '5YR License EOL 27th May 2025. 1 & 3 Year Licenses still available. The Last Date of Support (LDoS) is May 31st 2030. Please visit the EoL documentation for more information: https://www.cisco.com/c/en/us/products/collateral/security/firepower-ngfw/firepower-2100-series-sec-app-5-yr-sub-eol.html'
     },
     'Firepower 2130': {
         StatefulInspectionThroughput: '10 Gbps',
@@ -142,7 +142,7 @@ const devices = {
         NumberOfPowerSupplies: '2',
         Storage: '200 GB',
         alternatives: ['Secure Firewall 3120', 'Secure Firewall 3130'],
-        notes: '5YR License EOL 27th May 2025. 1 & 3 Year Licenses still available'
+        notes: '5YR License EOL 27th May 2025. 1 & 3 Year Licenses still available. The Last Date of Support (LDoS) is May 31st 2030. Please visit the EoL documentation for more information: https://www.cisco.com/c/en/us/products/collateral/security/firepower-ngfw/firepower-2100-series-sec-app-5-yr-sub-eol.html'
     },
     'Firepower 2140': {
         StatefulInspectionThroughput: '20 Gbps',
@@ -158,7 +158,7 @@ const devices = {
         NumberOfPowerSupplies: '2',
         Storage: '200 GB',
         alternatives: ['Secure Firewall 3120', 'Secure Firewall 3130'],
-        notes: '5YR License EOL 27th May 2025. 1 & 3 Year Licenses still available'
+        notes: '5YR License EOL 27th May 2025. 1 & 3 Year Licenses still available. The Last Date of Support (LDoS) is May 31st 2030. Please visit the EoL documentation for more information: https://www.cisco.com/c/en/us/products/collateral/security/firepower-ngfw/firepower-2100-series-sec-app-5-yr-sub-eol.html'
     },
     'Firepower 4110': { 
         StatefulInspectionThroughput: '35 Gbps', 
@@ -174,7 +174,7 @@ const devices = {
         NumberOfPowerSupplies: '2',
         Storage: '200 GB',
         alternatives: ['Secure Firewall 3110', 'Secure Firewall 3140'],
-        notes: '1YR licenses are still an option'
+        notes: '1YR licenses are still an option. The Last Date of Support (LDoS) is January 31st 2027. Please visit the EoL documentation for more information: https://www.cisco.com/c/en/us/products/collateral/security/firepower-ngfw/firepower-4110-series-sec-app-subscript-eol.html'
     },
     'Firepower 4120': { 
         StatefulInspectionThroughput: '60 Gbps', 
@@ -190,7 +190,7 @@ const devices = {
         NumberOfPowerSupplies: '2',
         Storage: '200 GB',
         alternatives: ['Secure Firewall 3140', 'Secure Firewall 4215'],
-        notes: 'Not applicable'
+        notes: 'The Last Date of Support (LDoS) is August 31st 2025. Please visit the EoL documentation for more information: https://www.cisco.com/c/en/us/products/collateral/security/firepower-ngfw/fpr-9300-sm24-36-44-sec-app-1-yr-sub-eol.html'
     },
     'Firepower 4140': { 
         StatefulInspectionThroughput: '70 Gbps', 
@@ -206,7 +206,7 @@ const devices = {
         NumberOfPowerSupplies: '2',
         Storage: '400 GB',
         alternatives: ['Secure Firewall 3140', 'Secure Firewall 4225'],
-        notes: 'Not applicable'
+        notes: 'The Last Date of Support (LDoS) is August 31st 2025. Please visit the EoL documentation for more information: https://www.cisco.com/c/en/us/products/collateral/security/firepower-ngfw/fpr-9300-sm24-36-44-sec-app-1-yr-sub-eol.html'
     },
     'Firepower 4150': { 
         StatefulInspectionThroughput: '75 Gbps', 
@@ -222,7 +222,7 @@ const devices = {
         NumberOfPowerSupplies: '2',
         Storage: '400 GB',
         alternatives: ['Secure Firewall 3140', 'Secure Firewall 4225'],
-        notes: 'Not applicable'
+        notes: 'The Last Date of Support (LDoS) is August 31st 2025. Please visit the EoL documentation for more information: https://www.cisco.com/c/en/us/products/collateral/security/firepower-ngfw/fpr-9300-sm24-36-44-sec-app-1-yr-sub-eol.html'
     },
      'Firepower 9300 SM-24': { 
         StatefulInspectionThroughput: '75 Gbps', 
@@ -238,7 +238,7 @@ const devices = {
         NumberOfPowerSupplies: '2',
         Storage: '1200 GB',
         alternatives: ['Secure Firewall 4215', 'Secure Firewall 4225'],
-        notes: 'Not applicable'
+         notes: 'The Last Date of Support (LDoS) is August 31st 2025. Please visit the EoL documentation for more information: https://www.cisco.com/c/en/us/products/collateral/security/firepower-ngfw/fpr-9300-sm24-36-44-sec-app-1-yr-sub-eol.html'
     },
      'Firepower 9300 SM-36': { 
         StatefulInspectionThroughput: '80 Gbps', 
@@ -254,7 +254,7 @@ const devices = {
         NumberOfPowerSupplies: '2',
         Storage: '1200 GB',
         alternatives: ['Secure Firewall 4215', 'Secure Firewall 4225'],
-        notes: 'Not applicable'
+         notes: 'The Last Date of Support (LDoS) is August 31st 2025. Please visit the EoL documentation for more information: https://www.cisco.com/c/en/us/products/collateral/security/firepower-ngfw/fpr-9300-sm24-36-44-sec-app-1-yr-sub-eol.html'
     },
      'Firepower 9300 SM-44': { 
         StatefulInspectionThroughput: '80 Gbps', 
@@ -270,7 +270,7 @@ const devices = {
         NumberOfPowerSupplies: '2',
         Storage: '1200 GB',
         alternatives: ['Secure Firewall 4215', 'Secure Firewall 4225'],
-        notes: 'Not applicable'
+         notes: 'The Last Date of Support (LDoS) is August 31st 2025. Please visit the EoL documentation for more information: https://www.cisco.com/c/en/us/products/collateral/security/firepower-ngfw/fpr-9300-sm24-36-44-sec-app-1-yr-sub-eol.html'
     },
 };
 const newdevices = {
@@ -553,7 +553,7 @@ const eolfmcdevices = {
         EventStorageSpace: '900 Gbps',
         MaximumEventRate: '5000',
         alternatives: ['Firewall Management Center 1700'],
-        notes: 'test'
+        notes: 'The Last Date of Support (LDoS) is November 30th 2028. Please visit the EoL documentation for more information: https://www.cisco.com/c/en/us/products/collateral/security/firesight-management-center/secure-fmc-platforms-1600-2600-4600-eol.html'
     },
     'Firewall Management Center 2600': {
         MaximumNumberofSensorsManaged: '300',
@@ -563,7 +563,7 @@ const eolfmcdevices = {
         EventStorageSpace: '1800 Gbps',
         MaximumEventRate: '12000',
         alternatives: ['Firewall Management Center 2700'],
-        notes: 'test'
+        notes: 'The Last Date of Support (LDoS) is November 30th 2028. Please visit the EoL documentation for more information: https://www.cisco.com/c/en/us/products/collateral/security/firesight-management-center/secure-fmc-platforms-1600-2600-4600-eol.html'
     },
     'Firewall Management Center 4600': {
         MaximumNumberofSensorsManaged: '750',
@@ -573,7 +573,7 @@ const eolfmcdevices = {
         EventStorageSpace: '3200 Gbps',
         MaximumEventRate: '20000',
         alternatives: ['Firewall Management Center 4700'],
-        notes: 'test'
+        notes: 'The Last Date of Support (LDoS) is November 30th 2028. Please visit the EoL documentation for more information: https://www.cisco.com/c/en/us/products/collateral/security/firesight-management-center/secure-fmc-platforms-1600-2600-4600-eol.html'
     },
 };
 
@@ -1212,13 +1212,22 @@ function exportResultsToPDF(resultsContainerId, optionNumber) {
         const notesContainer = document.getElementById(notesContainerId);
 
         if (notesContainer && notesContainer.offsetHeight > 0 && notesContainer.offsetWidth > 0) {
-            const notesContent = notesContainer.innerHTML;
+            let notesContent = notesContainer.innerHTML;
             console.log("Appending Notes:", notesContent);
+
+            // Ensure links are safely wrapped in <a> tags
+            notesContent = notesContent.replace(
+                /(https?:\/\/[^\s<]+)/g, // Match URLs without interfering with existing HTML
+                '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
+            );
+
             tempContainer.innerHTML += `
                 <div style="margin-top: 50px;">
                     <h2 style="text-decoration: underline;">Notes</h2>
                     ${notesContent}
                 </div>`;
+        } else {
+            console.warn(`Notes section (${notesContainerId}) is missing or not visible.`);
         }
 
         console.log("Temp Container Content for Export:", tempContainer.innerHTML);
@@ -1230,7 +1239,7 @@ function exportResultsToPDF(resultsContainerId, optionNumber) {
             html2canvas: {
                 dpi: 300,
                 scale: 2,
-                useCORS: true // Ensure links to external resources are handled
+                useCORS: true // Enable support for cross-origin resources
             },
             jsPDF: {
                 unit: 'mm',
@@ -1246,54 +1255,8 @@ function exportResultsToPDF(resultsContainerId, optionNumber) {
             .toPdf()
             .get("pdf")
             .then((pdf) => {
-                // Add clickable links
-                console.log("Processing clickable links...");
-                const links = tempContainer.querySelectorAll("a");
-
-                // Get PDF page dimensions
-                const pageWidth = pdf.internal.pageSize.getWidth();
-                const pageHeight = pdf.internal.pageSize.getHeight();
-
-                links.forEach((link) => {
-                    const href = link.getAttribute("href");
-                    if (href) {
-                        const rect = link.getBoundingClientRect();
-                        const x = (rect.left / window.innerWidth) * pageWidth; // Convert X position to PDF scale
-                        const y = (rect.top / window.innerHeight) * pageHeight; // Convert Y position to PDF scale
-                        const width = (rect.width / window.innerWidth) * pageWidth;
-                        const height = (rect.height / window.innerHeight) * pageHeight;
-
-                        // Add clickable area for the link
-                        pdf.link(x, y, width, height, { url: href });
-                        console.log(`Added link to PDF: ${href}`);
-                    }
-                });
-
-                // Add page number and website URL footer
-                const totalPages = pdf.internal.getNumberOfPages();
-                for (let i = 1; i <= totalPages; i++) {
-                    pdf.setPage(i);
-                    pdf.setFontSize(10);
-
-                    // Add centered footer
-                    pdf.text(
-                        "www.networkwizkid.com",
-                        pageWidth / 2,
-                        pageHeight - 10,
-                        { align: 'center' }
-                    );
-
-                    // Add page number at the bottom-right
-                    pdf.text(
-                        `Page ${i} of ${totalPages}`,
-                        pageWidth - 20,
-                        pageHeight - 10
-                    );
-                }
-
-                // Save the finalized PDF
+                console.log("PDF generated successfully with clickable links.");
                 pdf.save(filename);
-                console.log("PDF export successful with clickable links:", filename);
             })
             .catch((error) => {
                 console.error("PDF export failed:", error);
@@ -1304,13 +1267,6 @@ function exportResultsToPDF(resultsContainerId, optionNumber) {
         alert("An unexpected error occurred during export. Please try again.");
     }
 }
-
-
-
-
-
-
-
 
 // Function to export results to Excel using SheetJS
 function exportResultsToExcel(resultsContainerId, optionNumber) {
