@@ -18,6 +18,10 @@ Option 3:
 
 For more flexibility, enter desired values for key metrics (e.g., throughput, connections). The application will display suitable alternatives based on your entered values.
 
+Option 4:
+
+Compare EoL Firepower Management Centers with newer models.
+
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Using the Application:
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -65,3 +69,5 @@ Cisco ASA 5500 Series EoL Notices: https://www.cisco.com/c/en/us/products/securi
 Cisco Firepower EoL Notices: https://www.cisco.com/c/en/us/products/security/firepower-ngfw/eos-eol-notice-listing.html
 
 The Network Wizkid Website: https://www.networkwizkid.com
+
+Additional links have now been added to the tool for EoL device documentation.
